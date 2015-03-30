@@ -1,0 +1,32 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            'FatLemon'
+header-title-sm:  "Andrew Freemantle's blog"
+header-title-xs:  "Andrew's blog"
+tagline:          'Contemplations on software development and human factors'
+welcome-message:  'Hi, welcome to my blog about software development and human factors'
+url:              'http://www.fatlemon.co.uk'
+paginate:         3
+baseurl:          ''
+imageurl:         '/public/images/'
+emoji_dir:        '/public/images/emoji'
+author:
+  name:           'Andrew Freemantle'
+  url:            http://www.fatlemon.co.uk
+  email:          andrew@fatlemon.co.uk
+
+# Handling Reading
+exclude:          ['README.md', 'Gemfile', 'Gemfile.lock']
+
+# Handling rewrites / redirects (for post slugs)
+gems:
+  - jekyll-redirect-from
+
+# Serving
+host:             0.0.0.0

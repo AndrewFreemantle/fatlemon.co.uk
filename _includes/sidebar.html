@@ -1,0 +1,57 @@
+<img class="gravatar"
+  src="https://www.gravatar.com/avatar/b873b1a5199eeefff7a7c1531f02324a?s=128&r=PG"
+  width="128px"
+  height="128px"
+  alt="Andrew Freemantle" />
+
+<span class="author">{{ site.author.name }}</span>
+
+<span class="welcome-message">{{ site.welcome-message }}</span>
+
+<ul class="about">
+	<li>
+		<a href="/aboutme" title="About"><i class="fa fa-question-circle"></i> About me</a>
+	</li>
+	<li>
+		<a href="http://careers.stackoverflow.com/andrew" title="Curriculum Vitae / Resume"><i class="fa fa-file-text"></i> Curriculum Vitae</a>
+	</li>
+</ul>
+
+<form class="form-inline" action="https://www.google.com/search?">
+	<input type="hidden" id="as_sitesearch" name="as_sitesearch" value="fatlemon.co.uk" />
+	<input type="text" id="q" name="q" class="form-control input-sm" maxlength="100" placeholder="Search" required="required" />
+	<button type="submit" class="btn btn-sm btn-default">Search</button>
+</form>
+
+<span class="h5">Recent posts</span>
+<ul class="recent-posts">
+	{% for post in site.posts limit:3 %}
+	<li>
+	  <a href="{{ BASE_PATH }}{{ post.url }}" title="{{ post.title }}">
+	  {{ post.title | truncate:30 }}</a>
+	</li>
+	{% endfor %}
+</ul>
+
+
+<span class="h5">Projects</span>
+<ul class="projects">
+	<li><a href="https://myletts.com"><img class="myletts-logo" src="{{ site.imageurl }}myletts-logo.png" alt="MyLetts" /> MyLetts - <span class="text-muted">Property Management for busy Landlords</span></a></li>
+</ul>
+
+<span class="h5">Follow or get in touch</span>
+<ul class="contact">
+	<li><a href="http://stackoverflow.com/users/5662/andrew">
+		<i class="fa fa-fw fa-stack-overflow"></i> StackOverflow</a></li>
+	<li><a href="https://github.com/AndrewFreemantle">
+		<i class="fa fa-fw fa-github"></i> GitHub</a></li>
+	<li><a href="https://twitter.com/fatlemon">
+		<i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
+	<li><a href="mailto:andrew--AT--fatlemon.co.uk" target="_blank">
+		<i class="fa fa-fw fa-envelope-o"></i> Email</a></li>
+</ul>
+
+<p class="license">
+	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+	<br />My articles are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+</p>

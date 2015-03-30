@@ -1,0 +1,7 @@
+{% if post %}
+  {% assign postdate = post.date %}
+{% else %}
+  {% assign postdate = page.date %}
+{% endif %}
+
+<span class="post-date text-muted"><i class="fa fa-fw fa-calendar" title="Posted on {{ postdate | date: '%A the %-d %B, %Y' }}"></i> {{ postdate | date: "%a %-d %B %Y" }}</span>
