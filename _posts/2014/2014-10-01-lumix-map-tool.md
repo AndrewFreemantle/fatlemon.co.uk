@@ -28,7 +28,7 @@ To save on space I'd copied the contents of the DVD onto a USB drive so I could 
 
 It took a bit of Googling, but I eventually found a great [blog post by Roland Kluge where he'd written a simple script version of the tool for his LUMIX DMC-TZ31](http://blog.roland-kluge.de/?p=250 "Simple replacement for Lumix Map Tool (Python) - Roland Kluge") - and after reading the comments I was able to modify his script to make it work for my new LUMIX DMC-TZ40.
 
-I cannot stress how thankful I am for his work and the comments on his post - **thank you Roland, and [thank you commenter Falk][2]**
+I cannot stress how thankful I am for his work and the comments on his post - **thank you Roland, and [thank you commenter Falk](http://blog.roland-kluge.de/?p=250#comment-28)**
 
 ### Introducing LUMIX Map Tool - Open Source edition :o)
   
