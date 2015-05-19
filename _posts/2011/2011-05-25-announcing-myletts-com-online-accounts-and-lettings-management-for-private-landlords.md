@@ -4,7 +4,13 @@ author: Andrew Freemantle
 layout: post
 tags:
   - MyLetts
+  - rentbook
 ---
+
+<div class="alert alert-success">
+<b>UPDATE: </b> <em>MyLetts</em> is now <a class="alert-link" href="https://www.rentbook.io"><img class="rentbook-logo" style="margin-top:2px; margin-left:3px" src="{{ site.imageurl }}rentbook-logo-18px.png" alt="rentbook logo" width="18px" height="16px" /> rent<span style="font-weight: normal">book</span></a>..  Sign up for a free account at <a class="alert-link" href="https://www.rentbook.io">https://www.rentbook.io</a>!
+</div>
+
 ![To Let and For Sale Billboards]({{ site.imageurl }}2011/ToLetBillboards.jpg)
 
 > "No man acquires property without acquiring with it a little arithmetic also."

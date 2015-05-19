@@ -90,8 +90,11 @@ ul.about > li {
 	display: inline-block;
 	margin: 0 4px 0 4px;
 }
-img.myletts-logo {
-	vertical-align: initial;
+a.rentbook {
+  color: #417941;
+}
+img.rentbook-logo {
+	vertical-align: text-top;
 }
 ul.contact {
 	margin-bottom: 0.5em;
