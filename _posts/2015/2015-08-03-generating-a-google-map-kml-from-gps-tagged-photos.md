@@ -17,7 +17,7 @@ tags:
 ![Google world map overlaid with route generated from digital photo metadata]({{ site.imageurl }}2015/photo-mapper-google-map-route.jpg)
 <p class="wp-caption-text">Joining the dots from digital photo metadata..</p>
 
-As I mentioned earlier, [my current compact travel-zoom camera is the excellent Panasonic DMC-TZ40](http://localhost:4000/2014/10/lumix-map-tool/). As it saves the GPS coordinates with every photo I take I thought it'd be a fun little exercise to try and script the extraction of this metadata, with a view to plotting the points on a map or even better - drawing a line between them all so I could retrace my steps!
+As I mentioned earlier, [my current compact travel-zoom camera is the excellent Panasonic DMC-TZ40]({{ site.url }}/lumix-map-tool/). As it saves the GPS coordinates with every photo I take I thought it'd be a fun little exercise to try and script the extraction of this metadata, with a view to plotting the points on a map or even better - drawing a line between them all so I could retrace my steps!
 
 Looping through files is pretty trivial in all programming and scripting languages, and most if not all of them already have JPEG libraries that allow for the straightforward extraction of the photo metadata. The final piece was finding a suitable output format that would be understood for rendering points and lines on maps. Enter <abbr title="Keyhole Markup Language">KML</abbr>:
 
