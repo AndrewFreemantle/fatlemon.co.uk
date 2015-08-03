@@ -11,6 +11,14 @@ a:hover {
 	text-decoration: none;
 }
 
+div.post img {
+	max-width: 100%;
+}
+abbr {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+
 #header {
 	background-color: #fff;
 	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
@@ -157,7 +165,7 @@ span.related-date, span.related-comment {
 .tag-cloud {
   list-style: none;
   padding: 0;
-  text-align: justify; 
+  text-align: justify;
   font-size: 1.3em;
 }
 .tag-cloud > li {
