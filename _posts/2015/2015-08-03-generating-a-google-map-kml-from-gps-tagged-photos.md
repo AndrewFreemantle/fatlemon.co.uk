@@ -23,7 +23,7 @@ Looping through files is pretty trivial in all programming and scripting languag
 
 <blockquote>Keyhole Markup Language (KML) is an XML notation for expressing geographic annotation and visualization within Internet-based, two-dimensional maps and three-dimensional Earth browsers.<br />- [Wikipedia](https://en.wikipedia.org/wiki/Keyhole_Markup_Language)</blockquote>
 
-Google acquired the inventors behind the language in 2004, implemented it in [Google Earth](https://www.google.com/earth) and [provide excellent documentation of the format](https://developers.google.com/kml/).
+Google acquired the language in 2004, implemented it in [Google Earth](https://www.google.com/earth) and [provide excellent documentation of the format](https://developers.google.com/kml/).
 
 The result of pulling this all together is the following Ruby script which I've called `photo-mapper` and [is an Open Source project on GitHub](https://github.com/AndrewFreemantle/photo-mapper)..
 
@@ -175,7 +175,7 @@ e.g:
     01 - January
       01 - New Years day dip in the North Sea
         DSC01265.jpg, DSC01266.jpg, etc..
-      02 - Discharged from hospital after recovering from hyperthermia
+      02 - Discharged from hospital after recovering from hypothermia
         DSC01271.jpg
     02 - February
       29 - Cycle-ride along the coast
