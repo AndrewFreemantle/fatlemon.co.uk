@@ -78,7 +78,7 @@ The following values are currently supported:
 </ol>
 
 
-If you get stuck, pop open a Command Prompt and run `WTV.exe` without any parameters for usage instructions, or paste your full command line to see  any helpful error messages:
+If you get stuck, pop open a Command Prompt and run `wtv` without any parameters for usage instructions, or paste your full command line to see  any helpful error messages:
 
 ![WTV: Command prompt usage]({{ site.imageurl }}2011/WTV-Date-Version-Command-Prompt-Usage.png)
 
@@ -87,7 +87,7 @@ If you get stuck, pop open a Command Prompt and run `WTV.exe` without any parame
 
 If you're using SubVersion for your source control, `WTV` can also put the projects SVN revision number into the application version.
 
-***There's only one caveat*** - .Net Application version number values are limited to a maximum of 32,767 (i.e. they're `Int16` / `short`). Therefore, if your SVN revision is higher <span class="inline-code">WTV</span> will only use the last 4 digits: e.g.: 32768 -> 2768.
+***There's only one caveat*** - .Net Application version number values are limited to a maximum of 65,535 (i.e. they're `UInt16` / `ushort`). Therefore, if your SVN revision is higher `WTV` will only use the last 4 digits: e.g.: 65535 -> 5535.
 
 To use the SVN revision number, simply add the `{SVN}` placeholder to your `AssemblyInfo.Template.cs / .vb` file like so:
 
