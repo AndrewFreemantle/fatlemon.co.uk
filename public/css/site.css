@@ -124,6 +124,7 @@ span.post-date, span.post-tags, span.post-comments {
 	color: #666;
 	font-size: 0.9em;
 	margin-top: -10px;
+	text-align: center;
 }
 
 div.post-header {
@@ -209,4 +210,36 @@ table.hdd-vs-ssd tfoot {
 	margin-bottom: 5em;
 	text-align: center;
 	font-size: 0.85em;
+}
+
+/* make the terminal look like a mini terminal */
+.fa.fa-terminal {
+	background-color: black;
+	color: white;
+	padding: 0 4px 2px 3px;
+	border-radius: 3px;
+	margin-right: 4px;
+}
+
+/* colour sticky notes */
+.fa.fa-sticky-note {
+	color: #e0dd42;
+	margin-right: 4px;
+}
+
+/* Keyboard key styling, thanks StackOverflow! */
+kbd {
+	display: inline-block;
+	margin: 0 .1em;
+	padding: .1em .6em;
+	font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+	font-size: 11px;
+	line-height: 1.4;
+	color: #242729;
+	text-shadow: 0 1px 0 #FFF;
+	background-color: #e1e3e5;
+	border: 1px solid #adb3b9;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 rgba(12,13,14,0.2),0 0 0 2px #FFF inset;
+	white-space: nowrap;
 }
