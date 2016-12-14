@@ -13,9 +13,6 @@ gem 'jekyll-paginate'
 # Handle rewrites / redirects (for post slugs)
 gem 'jekyll-redirect-from'
 
-# Emoji support
-gem 'gemoji'
-
 group :jekyll_plugins do
   # Live reloading of posts while editing
   # https://github.com/awood/hawkins

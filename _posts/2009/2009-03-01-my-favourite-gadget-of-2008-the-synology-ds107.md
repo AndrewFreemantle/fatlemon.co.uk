@@ -7,7 +7,7 @@ tags:
   - Linux
   - Synology
 ---
-Yep, I know it's March already :smiley: but back in December I picked up one of these because I was after some Network Attached Storage, and it has impressed me ever since.  This isn't a review as such, more a highlight of my favourite features and possibly some tips and tricks I've found..
+Yep, I know it's March already <i class="fa fa-smile-o"></i> but back in December I picked up one of these because I was after some Network Attached Storage, and it has impressed me ever since.  This isn't a review as such, more a highlight of my favourite features and possibly some tips and tricks I've found..
 
 ![Synology DS107+]({{ site.imageurl }}2009/Synology-DS107.png)
 
@@ -53,12 +53,12 @@ And after securing SSH and poking a hole to it in my router, I can log into my S
 
 Among those extra applications is Subversion - the open source version control system which was a snap to install, configure and then (using the web Disk Station Manager 2.0 options) configure backups of both the Subversion repository and DokuWiki every hour to an old USB stick I plugged in the back.
 
-The only thing that took me a bit of time to figure out was how to get 'svnserve' to start automatically. Do [check out my comment](http://runtothehills.org/rob/?p=25#comment-39 "Automatically starting svnserve on the Synology DS-107 - Blog comment") on [Rob's Synology Subversion post](http://runtothehills.org/rob/?p=25 "Synology Subversion Server - Run to the Hills") if you'd like to know what I came up with  :smiley:
+The only thing that took me a bit of time to figure out was how to get 'svnserve' to start automatically. Do [check out my comment](http://runtothehills.org/rob/?p=25#comment-39 "Automatically starting svnserve on the Synology DS-107 - Blog comment") on [Rob's Synology Subversion post](http://runtothehills.org/rob/?p=25 "Synology Subversion Server - Run to the Hills") if you'd like to know what I came up with  <i class="fa fa-smile-o"></i>
 
 **In summary**
 
 It's a fantastic peice of kit - full of features, well made, small, looks good, has a great Ajax-y web interface, and with a little tweaking there's enough of a Linux server in there to run pretty much anything.
 
-Well done Synology  :smiley:
+Well done Synology  <i class="fa fa-smile-o"></i>
 
-:star: :star: :star: :star: :star:
+<i class="fa fa-star text-warning"></i> <i class="fa fa-star text-warning"></i> <i class="fa fa-star text-warning"></i> <i class="fa fa-star text-warning"></i> <i class="fa fa-star text-warning"></i>

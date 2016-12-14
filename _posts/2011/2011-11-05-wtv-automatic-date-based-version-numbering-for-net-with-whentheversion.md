@@ -17,7 +17,7 @@ There's a trend towards using the software build date as part of the software ve
 [![WTV Date-version example: MyLetts.com]({{ site.imageurl }}2011/WTV-Date-Version-Example-MyLetts.png)
 ](http://www.myletts.com "MyLetts.com - Lettings management for private landlords")
 
-Wouldn't it be great if we could get Visual Studio to do this for us automatically on build?  I thought so too, so I've written a little app to do it :smiley:
+Wouldn't it be great if we could get Visual Studio to do this for us automatically on build?  I thought so too, so I've written a little app to do it <i class="fa fa-smile-o"></i>
 
 #### Getting set up with "When The Version"
 
@@ -116,4 +116,4 @@ And because the `AssemblyInfo.cs` is generated, you can remove it from source co
 
 #### Finally
 
-Comments and suggestions are welcome here or on the [projects issue tracker over at GitHub](https://github.com/AndrewFreemantle/When-The-Version/issues "WhenTheVersion - Issue tracker at GitHub"). I hope you find it useful :smiley:
+Comments and suggestions are welcome here or on the [projects issue tracker over at GitHub](https://github.com/AndrewFreemantle/When-The-Version/issues "WhenTheVersion - Issue tracker at GitHub"). I hope you find it useful <i class="fa fa-smile-o"></i>

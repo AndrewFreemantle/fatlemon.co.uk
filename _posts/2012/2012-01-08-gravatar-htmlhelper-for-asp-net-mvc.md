@@ -42,7 +42,7 @@ or
 
 and that's it! The helper method is progressively overloaded, so you need only supply the minimum parameters to get the Gravatar you're after.
 
-Comments and suggestions are welcome here or on the [projects issue tracker over at GitHub](https://github.com/AndrewFreemantle/Gravatar-HtmlHelper/issues "Gravatar-HtmlHelper - Issue tracker at GitHub"). I hope you find it useful  :smiley:
+Comments and suggestions are welcome here or on the [projects issue tracker over at GitHub](https://github.com/AndrewFreemantle/Gravatar-HtmlHelper/issues "Gravatar-HtmlHelper - Issue tracker at GitHub"). I hope you find it useful  <i class="fa fa-smile-o"></i>
 
  [1]: http://en.gravatar.com/site/implement/images/libraries/ "Gravatar.com - Libraries, Plugins, Applications, HOWTOs, etc"
  [2]: http://www.gravatar.com/ "Gravatar - A Globally Recognized Avatar"

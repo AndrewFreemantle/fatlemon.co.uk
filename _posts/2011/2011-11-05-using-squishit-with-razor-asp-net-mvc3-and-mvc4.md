@@ -93,4 +93,4 @@ Bundle.JavaScript()
 }
 {% endhighlight %}
 
-Thank you Justin  :smiley:
+Thank you Justin  <i class="fa fa-smile-o"></i>

@@ -10,7 +10,6 @@ GEM
     eventmachine (1.2.1)
     ffi (1.9.14)
     forwardable-extended (2.6.0)
-    gemoji (2.1.0)
     hawkins (2.0.4)
       em-websocket (~> 0.5)
       jekyll (~> 3.1)
@@ -54,7 +53,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gemoji
   hawkins (~> 2.0)
   jekyll
   jekyll-paginate

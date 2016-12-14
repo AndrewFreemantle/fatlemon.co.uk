@@ -123,4 +123,4 @@ The Html Helper code then simply tries to read the updated text file and returns
 
 Obviously, if we're using this on a high-traffic website or frequently referenced page then we'd want to cache the string rather than reading it from the file every time. We could do this by modifying the Html Helper to read the file once into a variable, which we could do by wrapping the actual file reading up in a singleton object, for example.
 
-I hope you find it useful :smiley:
+I hope you find it useful <i class="fa fa-smile-o"></i>

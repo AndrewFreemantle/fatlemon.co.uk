@@ -15,7 +15,6 @@ url:              'http://www.fatlemon.co.uk'
 paginate:         3
 baseurl:          ''
 imageurl:         '/public/images/'
-emoji_dir:        '/public/images/emoji'
 author:
   name:           'Andrew Freemantle'
   url:            http://www.fatlemon.co.uk

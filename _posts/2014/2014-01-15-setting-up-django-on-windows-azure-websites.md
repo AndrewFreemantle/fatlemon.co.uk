@@ -7,7 +7,7 @@ tags:
   - Django
   - Windows Azure
 ---
-A couple of things caught me out when I was trying to deploy a Django application to Windows Azure, so I'm making a note of them here for future reference. Oh, and I hope they might be of use to you as well :smiley:
+A couple of things caught me out when I was trying to deploy a Django application to Windows Azure, so I'm making a note of them here for future reference. Oh, and I hope they might be of use to you as well <i class="fa fa-smile-o"></i>
 
 ### Configuring Azure Websites to run Python and Django
 
@@ -53,7 +53,7 @@ There are three things you need to do to get this working:
  2.  Set **DJANGO\_SETTINGS\_MODULE** - *Point this to your `settings.py` file. Replace directory slashes / with dots, and omit the .py from the end*
  3. Create the file **`handler.fcgi`** - *This is required, and it's a just a plain text file containing two double-quotes (i.e. `""`) on the first line followed by a return carriage*
 
-Seriously though, just put the [settings into the Azure management portal](http://www.windowsazure.com/en-us/documentation/articles/web-sites-python-create-deploy-django-app/#web-site-configuration). It's easier :smiley:
+Seriously though, just put the [settings into the Azure management portal](http://www.windowsazure.com/en-us/documentation/articles/web-sites-python-create-deploy-django-app/#web-site-configuration). It's easier <i class="fa fa-smile-o"></i>
 
 ### Bad Request (400)
 

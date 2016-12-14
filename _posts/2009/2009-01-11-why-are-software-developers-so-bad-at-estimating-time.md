@@ -47,4 +47,4 @@ The answer, then, is to take the developers estimate with a pinch of salt (the m
 
 The next question you may be asking of course, is how do I reduce the difference between the estimate and the actual - the 'slip'.
 
-That's a topic for another day. I'll let you know when I've finished [Peopleware](http://www.amazon.co.uk/gp/product/0932633439?ie=UTF8&tag=fatl-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=0932633439 "Peopleware: Productive People and Teams - Amazon.co.uk"), or you can grab a copy for yourself  :smiley:
+That's a topic for another day. I'll let you know when I've finished [Peopleware](http://www.amazon.co.uk/gp/product/0932633439?ie=UTF8&tag=fatl-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=0932633439 "Peopleware: Productive People and Teams - Amazon.co.uk"), or you can grab a copy for yourself  <i class="fa fa-smile-o"></i>

@@ -101,4 +101,4 @@ I had taken the timings the week before I found this out, and with a clean SSD i
 
 Fortuitously, the Corsair SSD arrived the same morning that the Samsung HDD exhibited the fault. (I know what you're thinking, and no, it definitely wasn't sabotage.. the SSD was on order for 2 weeks prior, and wasn't due to arrive for another 3 days)
 
-The Solid State Drive upgrade is a definite improvement, and I don't think I'll be buying Hard Disk Drives any more  :smiley:
+The Solid State Drive upgrade is a definite improvement, and I don't think I'll be buying Hard Disk Drives any more  <i class="fa fa-smile-o"></i>
