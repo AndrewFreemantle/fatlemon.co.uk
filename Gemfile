@@ -13,9 +13,6 @@ gem 'jekyll-paginate'
 # Handle rewrites / redirects (for post slugs)
 gem 'jekyll-redirect-from'
 
-# Syntax highlighting
-gem 'pygments.rb'
-
 # Emoji support
 gem 'gemoji'
 
