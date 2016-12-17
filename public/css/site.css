@@ -1,5 +1,6 @@
 body {
 	background-color: #eceff1;
+	color: #444;
 	font-size: 16px;
 	line-height: 1.6em;
 }
@@ -99,6 +100,9 @@ ul.about > li {
 	display: inline-block;
 	margin: 0 4px 0 4px;
 }
+div.sidebar a.archives {
+	margin-left: 33%;
+} 
 a.rentbook {
   color: #417941;
 }
@@ -157,6 +161,9 @@ span.related-date, span.related-comment {
 }
 
 
+#archives > h3 {
+	border-bottom: 1px solid #eee;
+}
 
 .tag-cloud {
   list-style: none;

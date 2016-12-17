@@ -25,7 +25,7 @@
 	<button type="submit" class="btn btn-sm btn-default">Search</button>
 </form>
 
-<span class="h5">Recent posts</span>
+<span class="h5">Recent posts<a class="archives" href="{{ BASE_PATH }}/archives/"><i class="fa fa-archive"></i> All Posts</a></span>
 <ul class="recent-posts">
 	{% for post in site.posts limit:3 %}
 	<li>
