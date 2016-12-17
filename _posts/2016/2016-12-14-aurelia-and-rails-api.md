@@ -18,7 +18,7 @@ Create a real backend for the app and use the <code>http-client</code> or <code>
 
 <div class="panel panel-info">
   <div class="panel-body bg-info">
-    <i class="fa fa-hand-stop-o fa-3x fa-pull-left text-info"></i> As with most things, there's more than one way to skin a cat. <em>This is not the only way to combine <a href="http://aurelia.io/">Aurelia</a> and <a href="http://rubyonrails.org/">Rails</a></em>. In all liklihood it's not the best way either - as I write this in December 2016 I'm new to Aurelia, I'm by no means an expert at Rails, and I'm still learning about modern front-end web development.
+    <i class="fa fa-hand-stop-o fa-3x fa-pull-left text-info"></i> As with most things, there's more than one way to skin a cat. <em>This is not the only way to combine <a href="http://aurelia.io/">Aurelia</a> and <a href="http://rubyonrails.org/">Rails</a></em>. In all likelihood it's not the best way either - as I write this in December 2016 I'm new to Aurelia, I'm by no means an expert at Rails, and I'm still learning about modern front-end web development.
   </div>
 </div>
 
