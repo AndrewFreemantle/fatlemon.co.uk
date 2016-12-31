@@ -8,7 +8,7 @@ title: Tags
 <ul class="tag-cloud">
 {% for tag in site.tags %}
   <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70 }}%">
-    <a href="#{{ tag | first | slugize }}">
+    <a href="#{{ tag | first }}">
       {{ tag | first }}
     </a>
   </li>
@@ -19,8 +19,7 @@ title: Tags
 {% for tag in site.tags %}
   <div class="archive-group">
     {% capture tag_name %}{{ tag | first }}{% endcapture %}
-    <h4 id="#{{ tag_name | slugize }}"><i class="fa fa-tag"></i> {{ tag_name }}</h4>
-    <a name="{{ tag_name | slugize }}"></a>
+    <h4 id="#{{ tag_name }}"><i class="fa fa-tag"></i> {{ tag_name }}<a href="#" name="{{ tag_name }}" class="invisible">{{ tag_name }}</a></h4>
     {% for post in site.tags[tag_name] %}
     <article class="archive-item">
       <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>

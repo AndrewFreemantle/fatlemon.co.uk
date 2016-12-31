@@ -102,7 +102,7 @@ ul.about > li {
 }
 div.sidebar a.archives {
 	margin-left: 33%;
-} 
+}
 a.rentbook {
   color: #417941;
 }
@@ -129,6 +129,14 @@ span.post-date, span.post-tags, span.post-comments {
 	font-size: 0.9em;
 	margin-top: -10px;
 	text-align: center;
+}
+
+ol.breadcrumb {
+	margin-bottom: 0px;
+	padding: 10px 7px 0px 1px;
+	background-color: inherit;
+	font-size: 1.3rem;
+	/*-webkit-margin-after: 0;*/
 }
 
 div.post-header {

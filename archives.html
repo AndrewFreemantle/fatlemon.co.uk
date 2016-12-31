@@ -5,7 +5,8 @@ title: Archives
 ---
 
 <div id="archives">
-  <h3>This year's posts</h3>
+  <h3>This year's posts<a href="#" name="{{ site.time | date: '%Y' }}" class="invisible">{{ site.time | date: '%Y' }}</a></h3>
+
   {% for post in site.posts %}
     {% unless post.next %}
       <div class="row current-year">
@@ -14,7 +15,7 @@ title: Archives
       {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
       {% if year != nyear %}
         </div>
-        <h3>{{ post.date | date: '%Y' }}</h3>
+        <h3>{{ post.date | date: '%Y' }}<a href="#" name="{{ post.date | date: '%Y' }}" class="invisible">{{ post.date | date: '%Y' }}</a></h3>
         <div class="row previous-year">
       {% endif %}
     {% endunless %}

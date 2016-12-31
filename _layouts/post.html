@@ -3,6 +3,11 @@ layout: default
 ---
 
 <div class="post">
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-home"></i></a></li>
+    <li><a href="/archives/#{{ page.date | date: '%Y' }}">{{ page.date | date: '%Y' }}</a></li>
+    <li class="active">{{ page.title }}</li>
+  </ol>
   <div class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     {% include post-date.html %}
@@ -36,7 +41,7 @@ layout: default
     <li>
       <a class="related-post" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
       <span class="related-date text-muted"><i class="fa fa-fw fa-calendar"></i> {{ post.date | date: '%-d %B %Y' }}</span>
-      <span class="related-comment text-muted"><i class="fa fa-fw fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{ site.url }}{{ post.url }}"> 0 Comments</span></span> 
+      <span class="related-comment text-muted"><i class="fa fa-fw fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{ site.url }}{{ post.url }}"> 0 Comments</span></span>
     </li>
     {% endfor %}
   </ul>
