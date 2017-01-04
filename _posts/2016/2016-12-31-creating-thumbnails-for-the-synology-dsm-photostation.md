@@ -22,7 +22,7 @@ After a brief search I found the sterling work of Matthew Phillips' [`synothumb`
 
 * <i class="fa fa-fw fa-server"></i> Synology NAS with PhotoStation installed
 * <i class="fa fa-fw fa-laptop"></i> Any PC, Netbook or Laptop that's more powerful than our Synology NAS, and that we don't mind leaving running for long periods of time (possibly days, depending on fast it is and how many photos we have..), and ideally with a wired LAN connection
-* <i class="fa fa-fw fa-linux"></i> A Linux install or a live CD - I recommend [the latest Linux Mint Cinnamon](https://linuxmint.com/download.php)
+* <i class="fa fa-fw fa-linux"></i> A Linux install or a live CD - I recommend [the latest Linux Mint Cinnamon](https://linuxmint.com/download.php) (18.1 as of writing)
 * <i class="fa fa-fw fa-file-code-o"></i> An executable copy of the `synothumb` Python script in our linux home directory..
 
 <i class="fa fa-terminal"></i>`curl -o synothumb.py https://raw.githubusercontent.com/AndrewFreemantle/synothumbs/master/synothumb.py`
@@ -47,9 +47,9 @@ And then we need to configure it.. still in the **Control Panel**, this time in 
 
 ### 2. Connecting from Linux to our Synology
 
-Now to our Linux client.. first we need NFS installed
+Now to our Linux client.. first we need NFS and the video libraries installed
 
-<i class="fa fa-terminal"></i>`sudo apt-get install nfs-common`
+<i class="fa fa-terminal"></i>`sudo apt-get install nfs-common ffmpeg libav-tools`
 
 Then we can check if we've configured NFS properly by running
 
@@ -102,7 +102,29 @@ Once the `synothumb.py` script has finished, we can unmount the share..
 * Disable the **NFS Service** if we enabled it
 * Restart the PhotoStation package (**Package Center** > **PhotoStation** > **Actions** > **Run**)
 
+And finally, we we need to tell the PhotoStation to re-index it's collection. Enable the Terminal (**Control Panel** > **Terminal & SNMP** > **Enable Telnet service** > click <span class="btn btn-info" style="display:inline-block;padding:0 1.5em;">Apply</span>)..
 
+<div class="panel panel-warning">
+	<div class="panel-body bg-warning">
+		<i class="fa fa-sticky-note"></i>Side note: We can use SSH instead of Telnet here, either will do
+  </div>
+</div>
+
+![]({{ site.imageurl }}2016/synothumbs-dsm-enabling-terminal-telnet.png)
+<p class="wp-caption-text"></p>
+
+Then we can issue the following commands from a terminal..
+
+<i class="fa fa-terminal"></i>`telnet -l admin {synology-ip-address}`
+
+Enter the 'Admin' password at the prompt, and we're greeted by a telnet session on our Synology
+
+<i class="fa fa-terminal"> admin@Synology:/$ </i>`sudo synoindex -R /volume1/photo`
+
+<i class="fa fa-terminal"> admin@Synology:/$ </i>`exit`
+
+
+<br />
 **Done**  <i class="fa fa-smile-o text-warning"></i>
 
 Huge thanks to [Matthew Phillips](https://www.phillips321.co.uk/2012/04/08/creating-thumbnails-for-the-synology-diskstation-photostation/) for creating the `synothumbs` script in the first place, to all the forkers for their tweaks and to [Francesco Pipia](http://twitter.com/fpipia) for [his comment](https://www.phillips321.co.uk/2012/04/08/creating-thumbnails-for-the-synology-diskstation-photostation/#comment-373) that helped me get the NFS connection working! *Grazie mille!*
