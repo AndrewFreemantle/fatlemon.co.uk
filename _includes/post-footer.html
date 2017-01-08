@@ -12,5 +12,10 @@
 
 <div class="post-footer">
 	<span class="author">Written by {{ author }}</span>
-	This entry was written and tagged {% for tag in tags %}<a href="{{ site.baseurl }}/tags/#{{ tag | slugize }}" title="All posts tagged '{{ tag }}'">{{ tag }}</a>{% unless forloop.last %},{% endunless %} {% endfor %} on {{ postdate | date: "%a %-d %B %Y" }}.
+	This entry was written and tagged {% for tag in tags %}<a href="{{ site.baseurl }}/tags/#{{ tag | slugize }}" title="All posts tagged '{{ tag }}'">{{ tag }}</a>{% unless forloop.last %},{% endunless %} {% endfor %} on {{ postdate | date: "%A %-d" }}{% case d %}
+    {% when '1' or '21' or '31' %}{{ d }}st
+    {% when '2' or '22' %}{{ d }}nd
+    {% when '3' or '23' %}{{ d }}rd
+    {% else %}{{ d }}th
+  {% endcase %} {{ postdate | date: "%B %Y" }}.
 </div>
