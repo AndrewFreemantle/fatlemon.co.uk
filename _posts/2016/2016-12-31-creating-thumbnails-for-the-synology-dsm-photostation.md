@@ -102,26 +102,12 @@ Once the `synothumb.py` script has finished, we can unmount the share..
 * Disable the **NFS Service** if we enabled it
 * Restart the PhotoStation package (**Package Center** > **PhotoStation** > **Actions** > **Run**)
 
-And finally, we we need to tell the PhotoStation to re-index it's collection. Enable the Terminal (**Control Panel** > **Terminal & SNMP** > **Enable Telnet service** > click <span class="btn btn-info" style="display:inline-block;padding:0 1.5em;">Apply</span>)..
+And finally, once it's back up and running we need to tell PhotoStation to re-index it's collection. Open **PhotoStation** in our browser - `https://{synology-ip}/photo` - and log in as Admin.
 
-<div class="panel panel-warning">
-	<div class="panel-body bg-warning">
-		<i class="fa fa-sticky-note"></i>Side note: We can use SSH instead of Telnet here, either will do
-  </div>
-</div>
+Then we choose **Settings** > **Photos** > and click <span class="btn btn-default" style="display:inline-block;padding:0 1.5em;">Re-index</span>
 
-![]({{ site.imageurl }}2016/synothumbs-dsm-enabling-terminal-telnet.png)
+![]({{ site.imageurl }}2016/synothumbs-photostation-re-index.png)
 <p class="wp-caption-text"></p>
-
-Then we can issue the following commands from a terminal..
-
-<i class="fa fa-terminal"></i>`telnet -l admin {synology-ip-address}`
-
-Enter the 'Admin' password at the prompt, and we're greeted by a telnet session on our Synology
-
-<i class="fa fa-terminal"> admin@Synology:/$ </i>`sudo synoindex -R /volume1/photo`
-
-<i class="fa fa-terminal"> admin@Synology:/$ </i>`exit`
 
 
 <br />
