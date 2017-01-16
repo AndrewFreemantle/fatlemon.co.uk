@@ -41,7 +41,7 @@ Here are the typical base settings I use:
   </tr>
   <tr>
     <td style="white-space:nowrap"><strong>Select additional options</strong></td>
-    <td>As per requirements (I just Monitoring)</td>
+    <td>As per requirements (usually just Monitoring)</td>
   </tr>
   <tr>
     <td style="white-space:nowrap"><strong>Add your SSH Keys</strong></td>
