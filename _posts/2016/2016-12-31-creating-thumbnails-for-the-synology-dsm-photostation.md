@@ -76,13 +76,7 @@ Matthew's `synothumbs` script skips media that already has thumbnails, so if we 
 
 ### 5. Monitoring progress..
 
-My contribution to the script is bit of error handling that outputs a list of bad files, so as well as watching `synothumb.py` whizzing through our photos, I have another terminal window with a tail going..
-
-<i class="fa fa-terminal"></i>`touch mnt_photo/synothumb-bad-file-list.txt`
-
-<i class="fa fa-terminal"></i>`tail -f mnt_photo/synothumb-bad-file-list.txt`
-
-I also like to have the **Activity Monitor** with the graphical Resources tab running..
+I like to have the **Activity Monitor** with the graphical Resources tab running..
 
 ![]({{ site.imageurl }}2016/synothumbs-linux-mint-system-monitor.png)
 <p class="wp-caption-text"></p>
@@ -92,7 +86,21 @@ I also like to have the **Activity Monitor** with the graphical Resources tab ru
 
 <i class="fa fa-clock-o"></i> *A little while later..*
 
-Once the `synothumb.py` script has finished, we can unmount the share..
+Once the `synothumb.py` script has finished, we need to modify the ownership and permissions of the thumbnails we've generated. For this we need an SSH or terminal / telnet session on our Synology, then we can issue the following:
+
+<div class="panel panel-warning">
+  <div class="panel-body bg-warning">
+    <i class="fa fa-sticky-note"></i>Note: If we've logged in with Terminal / telnet, and our prompt shows us as the <code>admin</code> user, we can issue the following command to become <code>root</code> (it'll prompt us for our Admin password again)<br/>
+
+    <i class="fa fa-terminal"> admin@Synology# </i><code>sudo -i</code>
+  </div>
+</div>
+
+<i class="fa fa-terminal"> root@Synology# </i>`cd /volume1/photo; find . -type d -name "@eaDir" -exec chown -R root:root {} \;`
+<i class="fa fa-terminal"> root@Synology# </i>`cd /volume1/photo; find . -type f -name "SYNOTHUMB_*" -exec chmod 777 {} \;`
+
+<br />
+Back to our linux thumbnail processing box, we can unmount the drive..
 
 <i class="fa fa-terminal"></i>`sudo umount mnt_photo`
 
