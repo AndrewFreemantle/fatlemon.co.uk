@@ -123,6 +123,10 @@ span.post-date, span.post-tags, span.post-comments {
 	font-size: 0.85em;
 }
 
+img.center-image {
+	margin: 0 auto;
+	display: block;
+}
 .wp-caption-text {
 	font-style: italic;
 	color: #666;
@@ -228,6 +232,10 @@ table.hdd-vs-ssd tfoot {
 	padding: 0 4px 2px 3px;
 	border-radius: 3px;
 	margin-right: 4px;
+}
+.fa.fa-terminal > span {
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+	margin-left: 3px;
 }
 
 /* colour sticky notes */

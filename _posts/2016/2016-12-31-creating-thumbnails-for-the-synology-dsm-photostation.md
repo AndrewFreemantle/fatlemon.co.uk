@@ -15,13 +15,13 @@ tags:
 
 Having updated my Synology NAS box to the latest Disk Station Manager (DSM) - version 6.0.2 as of December 2016 - I read that the PhotoStation thumbnail filenames had changed, and it now generates fewer of them which takes less time and saves space. Given that we've [somewhere north of 105k photos and videos](https://twoyeartrip.com/blog/2015/05/two-years-of-travel-in-numbers-stats-round-up/), it would take the little 1.6GHz ARM CPU in the Synology *weeks* (if not *months*) to recreate them so I started looking for a faster way.
 
-After a brief search I found the sterling work of Matthew Phillips' [`synothumb` script](https://www.phillips321.co.uk/2012/04/08/creating-thumbnails-for-the-synology-diskstation-photostation/), which has been [tweaked a few times](https://github.com/phillips321/synothumbs/network) most recently by one [Andrew Harris](https://www.drew-harris.com) and it's his version I started with.
+After a brief search I found the sterling work of [Matthew Phillips' `synothumb` script](https://www.phillips321.co.uk/2012/04/08/creating-thumbnails-for-the-synology-diskstation-photostation/), which has been [tweaked a few times](https://github.com/phillips321/synothumbs/network) most recently by one [Andrew Harris](https://www.drew-harris.com) and it's his version I started with.
 
 
 ### Prerequisites
 
 * <i class="fa fa-fw fa-server"></i> Synology NAS with PhotoStation installed
-* <i class="fa fa-fw fa-laptop"></i> Any PC, Netbook or Laptop that's more powerful than our Synology NAS, and that we don't mind leaving running for long periods of time (possibly days, depending on fast it is and how many photos we have..), and ideally with a wired LAN connection
+* <i class="fa fa-fw fa-laptop"></i> Any PC, Netbook or Laptop that's more powerful than our Synology NAS, and that we don't mind leaving running for long periods of time (possibly days, depending on fast it is and how many photos we have..), and ideally with a wired Gigabit LAN connection
 * <i class="fa fa-fw fa-linux"></i> A Linux install or a live CD - I recommend [the latest Linux Mint Cinnamon](https://linuxmint.com/download.php) (18.1 as of writing)
 * <i class="fa fa-fw fa-file-code-o"></i> An executable copy of the `synothumb` Python script in our linux home directory..
 
@@ -47,9 +47,9 @@ And then we need to configure it.. still in the **Control Panel**, this time in 
 
 ### 2. Connecting from Linux to our Synology
 
-Now to our Linux client.. first we need NFS and the video libraries installed
+Now to our Linux client.. first we need NFS and the video libraries installed. In a Terminal we run
 
-<i class="fa fa-terminal"></i>`sudo apt-get install nfs-common ffmpeg libav-tools`
+<i class="fa fa-terminal"></i>`sudo apt-get install nfs-common ffmpeg libav-tools ufraw`
 
 Then we can check if we've configured NFS properly by running
 
@@ -64,7 +64,7 @@ If it returns the IP address of our Linux client then we can mount the photo sha
 
 ### 3. (Optional) Remove existing thumbnails
 
-Matthew's `synothumbs` script skips media that already has thumbnails, so if we want to recreate them all rather than generate any missing ones we just need to run
+Matthew's `synothumbs` script skips media that already has thumbnails, so if we want to recreate them all rather than generate any missing ones we just need to run this first..
 
 <i class="fa fa-terminal"></i>`find mnt_photo/ -type d -name "@eaDir" -exec rm -rf {} \;`
 
@@ -76,10 +76,10 @@ Matthew's `synothumbs` script skips media that already has thumbnails, so if we 
 
 ### 5. Monitoring progress..
 
-I like to have the **Activity Monitor** with the graphical Resources tab running..
+As well at watching the image and video filenames fly past, I like to have the **Activity Monitor** with the graphical Resources tab running..
 
-![]({{ site.imageurl }}2016/synothumbs-linux-mint-system-monitor.png)
-<p class="wp-caption-text"></p>
+![]({{ site.imageurl }}2016/synothumbs-linux-mint-system-monitor.png){: .center-image }
+<p class="wp-caption-text">Watching the System Monitor - if the CPU's aren't pegged at 100% then we need a faster network!</p>
 
 
 ### 6. Finishing up..
@@ -92,15 +92,17 @@ Once the `synothumb.py` script has finished, we need to modify the ownership and
   <div class="panel-body bg-warning">
     <i class="fa fa-sticky-note"></i>Note: If we've logged in with Terminal / telnet, and our prompt shows us as the <code>admin</code> user, we can issue the following command to become <code>root</code> (it'll prompt us for our Admin password again)<br/>
 
-    <i class="fa fa-terminal"> admin@Synology# </i><code>sudo -i</code>
+    <i class="fa fa-terminal"><span>admin@Synology#</span></i><code>sudo -i</code>
   </div>
 </div>
 
-<i class="fa fa-terminal"> root@Synology# </i>`cd /volume1/photo; find . -type d -name "@eaDir" -exec chown -R root:root {} \;`
-<i class="fa fa-terminal"> root@Synology# </i>`cd /volume1/photo; find . -type f -name "SYNOTHUMB_*" -exec chmod 777 {} \;`
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`cd /volume1/photo`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type d -name "@eaDir" -exec chown -R PhotoStation:PhotoStation {} \;`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type d -name "@eaDir" -exec chmod -R 750 {} \;`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type f -name "SYNOPHOTO_THUMB*" -exec chmod 640 {} \;`  
 
 <br />
-Back to our linux thumbnail processing box, we can unmount the drive..
+Back to our Linux thumbnail processing box, we can unmount the drive..
 
 <i class="fa fa-terminal"></i>`sudo umount mnt_photo`
 
@@ -110,12 +112,14 @@ Back to our linux thumbnail processing box, we can unmount the drive..
 * Disable the **NFS Service** if we enabled it
 * Restart the PhotoStation package (**Package Center** > **PhotoStation** > **Actions** > **Run**)
 
-And finally, once it's back up and running we need to tell PhotoStation to re-index it's collection. Open **PhotoStation** in our browser - `https://{synology-ip}/photo` - and log in as Admin.
+Once the PhotoStation package is back up and running it should automatically start re-indexing - that is, searching `/volume1/photo` for new photos. If we'd just copied a lot of new photos and videos onto our Synology box then *this process can take longer than the thumbnail generation!* - for every media file found it reads the file's [EXIF data](https://en.wikipedia.org/wiki/Exif) and writes it to local database.
+
+We can check that the re-indexing has started (and kick it off it hasn't) by opening **PhotoStation** in our browser - `https://{synology-ip}/photo` - and logging in as Admin.
 
 Then we choose **Settings** > **Photos** > and click <span class="btn btn-default" style="display:inline-block;padding:0 1.5em;">Re-index</span>
 
 ![]({{ site.imageurl }}2016/synothumbs-photostation-re-index.png)
-<p class="wp-caption-text"></p>
+<p class="wp-caption-text">Ensuring that PhotoStation knows about any new photos and videos we've added by Re-indexing</p>
 
 
 <br />
