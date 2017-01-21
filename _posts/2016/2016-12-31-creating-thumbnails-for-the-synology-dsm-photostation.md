@@ -98,8 +98,8 @@ Once the `synothumb.py` script has finished, we need to modify the ownership and
 
 <i class="fa fa-terminal"><span>root@Synology#</span></i>`cd /volume1/photo`  
 <i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type d -name "@eaDir" -exec chown -R PhotoStation:PhotoStation {} \;`  
-<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type d -name "@eaDir" -exec chmod -R 750 {} \;`  
-<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type f -name "SYNOPHOTO_THUMB*" -exec chmod 640 {} \;`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type d -name "@eaDir" -exec chmod -R 770 {} \;`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type f -name "SYNOPHOTO_THUMB*" -exec chmod 660 {} \;`  
 
 <br />
 Back to our Linux thumbnail processing box, we can unmount the drive..
