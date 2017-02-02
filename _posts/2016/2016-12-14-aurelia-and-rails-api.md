@@ -317,7 +317,7 @@ end
   </div>
 </div>
 
-Refresh, and we see that the Contact List does indeed show the list of contacts from the Rails API - notice that we appended '-Rails' to the last names so we could tell where out data was coming from..
+Refresh, and we see that the Contact List does indeed show the list of contacts from the Rails API - notice that we appended '-Rails' to the last names so we could tell where our data was coming from..
 
 ![Screenshot of our app working in development - Contact List is from Rails, but the Profile Details aren't yet]({{ site.imageurl }}/2016/aurelia-rails-contacts-list-via-api-in-app-details-todo-annotated.png)
 <p class="wp-caption-text">Fixed! Our separately hosted Aurelia frontend and Rails API backend can now talk to each other in development</p>
@@ -411,7 +411,7 @@ export function configure(aurelia) {
   ...
   // Configure an application-wide HttpClient
   configureHttpContainer(aurelia.container);      // <- add this..
-  
+
   aurelia.start().then(() => aurelia.setRoot());
 }
 
@@ -633,7 +633,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :contacts
-  
+
 end
 {% endhighlight %}
 
@@ -714,7 +714,7 @@ Stop the Aurelia CLI if it's running (<kbd>Ctrl</kbd>+<kbd>C</kbd> our `au run -
   <body aurelia-app="main">
     <!-- remove this line -->
     <script src="assets/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
-    
+
     <!-- add this line -->
     <%= javascript_include_tag "application", { "data-main" => "aurelia-bootstrapper" } %>
   </body>
