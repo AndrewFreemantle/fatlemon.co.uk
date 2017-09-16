@@ -23,11 +23,14 @@ author:
 # Handling Reading
 exclude:          ['README.md', 'Gemfile', 'Gemfile.lock']
 
-# Handling rewrites / redirects (for post slugs)
-# and pagination
+# Handling
+# - rewrites / redirects (for post slugs)
+# - pagination
+# - json feed generation
 gems:
   - jekyll-redirect-from
   - jekyll-paginate
+  - jekyll-json-feed
 
 # Serving
 host:             0.0.0.0
