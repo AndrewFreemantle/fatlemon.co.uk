@@ -15,7 +15,7 @@ tags:
 
 > "No man acquires property without acquiring with it a little arithmetic also."
 > 
-> \- Ralph Waldo Emerson (</span>1803 - 1882)
+> \- Ralph Waldo Emerson (1803 - 1882)
 
 In 2003 I placed offers on two almost identical semi-detached houses in adjoining estates, at the same time, thinking that if one offer wasn't accepted, the other one would be.
 
@@ -45,7 +45,7 @@ The idea that, as a private landlord, [whose passion is creating software](http:
 **Software for Landlords, built by Landlords.**
 
 
-####So what does it do?
+### So what does it do?
 
   * **It takes the pain and time away from compiling your year-end self-assessment tax return.**
 
@@ -66,7 +66,7 @@ I have more insight into my property business because of [MyLetts](http://www.my
 **It's like having always up-do-date Profit and Loss statement for your lettings at your finger-tips.**
 
 
-####So what's planned?
+### So what's planned?
 
 
 [MyLetts][1] will always be about making it as easy as possible for you to compile your Property Rental Tax Return.
