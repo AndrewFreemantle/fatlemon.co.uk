@@ -22,4 +22,4 @@ end
 # Jekyll server: 0.0.0.0:4000
 #  jekyll liveserve
 #   - or -
-#  bundle exec jekyll serve
+#  bundle exec jekyll liveserve
