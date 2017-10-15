@@ -227,7 +227,7 @@ table.hdd-vs-ssd tfoot {
 
 /* make the terminal look like a mini terminal */
 .fa.fa-terminal {
-	background-color: black;
+	background-color: #444;
 	color: white;
 	padding: 0 4px 2px 3px;
 	border-radius: 3px;

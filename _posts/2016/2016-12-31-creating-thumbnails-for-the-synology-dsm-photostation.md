@@ -101,6 +101,33 @@ Once the `synothumb.py` script has finished, we need to modify the ownership and
 <i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type d -name "@eaDir" -exec chmod -R 770 {} \;`  
 <i class="fa fa-terminal"><span>root@Synology#</span></i>`find . -type f -name "SYNOPHOTO_THUMB*" -exec chmod 660 {} \;`  
 
+Next we need to ensure that when the PhotoStation start re-indexing that it can't re-create the thumbnails itself - that would *seriously* defeat the point of all of the work we've just done! Fortunately it's easy to do.. while we're in our SSH or terminal / telnet session we can point the existing thumbnail links to a simple script that just returns success!
+
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`cd /usr/syno/bin`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`echo -e '#!/bin/bash\nexit 0' > fake-thumb.sh`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`chmod +x fake-thumb.sh`  
+
+Next we'll just make a note of the current symbolic links:
+
+* Photos: <i class="fa fa-terminal"><span>root@Synology#</span></i>`la -la convert-thumb`  
+* Videos: <i class="fa fa-terminal"><span>root@Synology#</span></i>`ls -la ffmpeg-thumb`  
+
+Which should yield the following results:
+
+* `convert-thumb -> /usr/bin/convert`
+* `ffmpeg-thumb -> /usr/bin/ffmpeg`
+
+<div class="panel panel-warning">
+  <div class="panel-body bg-warning">
+    <i class="fa fa-sticky-note"></i><strong>Important!</strong> Make a note of these paths <strong>if they're different to the one's above</strong> as we'll need them later!
+  </div>
+</div>
+
+Now we can point these symbolic links to out `fake-thumb.sh` script:
+
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`ln -s fake-thumb.sh convert-thumb`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`ln -s fake-thumb.sh ffmpeg-thumb`  
+
 <br />
 Back to our Linux thumbnail processing box, we can unmount the drive..
 
@@ -119,10 +146,17 @@ We can check that the re-indexing has started (and kick it off it hasn't) by ope
 Then we choose **Settings** > **Photos** > and click <span class="btn btn-default" style="display:inline-block;padding:0 1.5em;">Re-index</span>
 
 ![]({{ site.imageurl }}2016/synothumbs-photostation-re-index.png)
-<p class="wp-caption-text">Ensuring that PhotoStation knows about any new photos and videos we've added by Re-indexing</p>
-
+<p class="wp-caption-text">Ensuring that PhotoStation knows about any new photos and videos we've added by re-indexing</p>
 
 <br />
+
+<i class="fa fa-clock-o"></i> When the PhotoStation's re-indexing has finished, we mustn't forget to revert the thumbnail symbolic links:
+
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`ln -s /usr/bin/convert /usr/syno/bin/convert-thumb`  
+<i class="fa fa-terminal"><span>root@Synology#</span></i>`ln -s /usr/bin/ffmpeg /usr/syno/bin/ffmpeg-thumb`  
+
+<br />
+
 **Done**  <i class="fa fa-smile-o text-warning"></i>
 
 Huge thanks to [Matthew Phillips](https://www.phillips321.co.uk/2012/04/08/creating-thumbnails-for-the-synology-diskstation-photostation/) for creating the `synothumbs` script in the first place, to all the forkers for their tweaks and to [Francesco Pipia](http://twitter.com/fpipia) for [his comment](https://www.phillips321.co.uk/2012/04/08/creating-thumbnails-for-the-synology-diskstation-photostation/#comment-373) that helped me get the NFS connection working! *Grazie mille!*
