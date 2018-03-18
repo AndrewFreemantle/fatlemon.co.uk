@@ -11,7 +11,7 @@ tags:
 ---
 
 
-At the end of [Aurelia's Contact Manager Tutorial](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/contact-manager-tutorial) the first 'Next Step' is:
+At the end of [Aurelia's Contact Manager Tutorial](http://aurelia.io/docs/tutorials/creating-a-contact-manager#next-steps) the first 'Next Step' is:
 <blockquote>
 Create a real backend for the app and use the <code>http-client</code> or <code>fetch-client</code> to retrieve data
 </blockquote>
