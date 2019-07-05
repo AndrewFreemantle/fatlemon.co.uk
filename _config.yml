@@ -27,7 +27,7 @@ exclude:          ['README.md', 'Gemfile', 'Gemfile.lock']
 # - rewrites / redirects (for post slugs)
 # - pagination
 # - json feed generation
-gems:
+plugins:
   - jekyll-redirect-from
   - jekyll-paginate
   - jekyll-json-feed
