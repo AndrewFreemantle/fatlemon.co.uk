@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby RUBY_VERSION
+ruby '2.6.5'
 
 # Github Pages blog using Jekyll:  http://fatlemon.github.io/
 gem 'jekyll'
