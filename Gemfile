@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '2.7.2'
+ruby '2.7.4'
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
@@ -18,7 +18,7 @@ gem "github-pages", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-feed", "~> 0.15"
 
   # Handle rewrites / redirects (for post slugs)
   gem 'jekyll-redirect-from'
