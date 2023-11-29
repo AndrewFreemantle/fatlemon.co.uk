@@ -1,0 +1,142 @@
+@media (min-width: 80em) {
+	.page, .archive {
+		padding-right: 0;
+	}
+}
+
+@media (min-width: 64em) {
+	.page, .archive {
+		padding-right: 0;
+	}
+}
+
+.text--success {
+	color: #328532;
+}
+.text--warning {
+	color: #ab6604;
+}
+.text--danger {
+	color: #be4c49;
+}
+.text--info {
+	color: #2f7d95;
+}
+.text--muted {
+	color: #7b848c;
+}
+.text--golden {
+	color: #baa30d;
+}
+
+.text--center {
+	text-align: center;
+}
+
+.fa.fa-terminal {
+	background-color: #444;
+	color: white;
+	padding: 4px 5px;
+	border-radius: 3px;
+	margin-right: 4px;
+}
+.fa.fa-terminal > span {
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+	font-size: 0.9em;
+	margin-left: 5px;
+}
+
+code {
+	font-style: normal;
+}
+
+figcaption {
+	font-family: inherit;
+	text-align: center;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.articles > h3 {
+	border-bottom: 1px solid #eee;
+}
+
+.article-item {
+	font-size: 0.8em;
+}
+
+.row {
+	margin-right: -15px;
+	margin-left: -15px;
+	font-size: 0.8em;
+}
+
+.row:after, .row:before {
+	display: table;
+	content: " ";
+}
+
+.row:after {
+	clear: both;
+}
+
+.col-md-2 {
+	width: 20%;
+}
+.col-md-10 {
+	width: 80%;
+}
+
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.tag-cloud {
+	list-style: none;
+	padding: 0;
+	text-align: justify;
+	/* font-size: 1.3em; */
+}
+
+.tag-cloud > li {
+	display: inline-block;
+	margin: 0;
+}
+
+/* Keyboard key styling, thanks StackOverflow! */
+kbd {
+	display: inline-block;
+	margin: 0 .1em;
+	padding: .1em .6em;
+	font-size: 0.8em;
+	line-height: 1.4;
+	color: #242729;
+	text-shadow: 0 1px 0 #FFF;
+	background-color: #e1e3e5;
+	border: 1px solid #adb3b9;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 rgba(12,13,14,0.2),0 0 0 2px #FFF inset;
+	white-space: nowrap;
+}
+
+a.rentbook,
+a.rentbook:hover {
+	color: #5755d9;
+	text-decoration: none;
+}
+
+a.rentbook:hover > img.rentbook-logo {
+	box-shadow: none;
+}
+
+span.table-subheading {
+	font-size: 1.1em;
+	display: block;
+	margin-bottom: 1em;
+}

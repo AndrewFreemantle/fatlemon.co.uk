@@ -1,7 +1,5 @@
 ---
 title: 'Panasonic LUMIX MapTool.pkg – Open Source edition'
-author: Andrew Freemantle
-layout: post
 permalink: /2014/10/lumix-map-tool/
 redirect_from:
   - /lumix-map-tool/
@@ -12,12 +10,12 @@ tags:
   - Open Source
 ---
 ![The Panasonic LUMIX DMC-TZ40 Digital Camera]({{ site.imageurl }}2014/Panasonic-DMC-TZ40.jpg)
-<p class="wp-caption-text">The Panasonic LUMIX DMC-TZ40 Digital Camera, in a word, excellent!</p>
+<figcaption>The Panasonic LUMIX DMC-TZ40 Digital Camera, in a word, excellent!</figcaption>
 
 I recently upgraded my compact travel zoom camera from the tried and trusted Sony DMC-HX9V to the Panasonic DMC-TZ40. It's quite an upgrade and while I'm delighted by my new purchase, the review will have to wait now that I can use a major feature: MAPS!
-  
+
 ![Maps! On a Digital Camera! What ever will they think of next!]({{ site.imageurl }}2014/Panasonic-LUMIX-TZ-Maps.jpg)
-<p class="wp-caption-text">Maps! On a Digital Camera! What ever will they think of next!</p>
+<figcaption>Maps! On a Digital Camera! What ever will they think of next!</figcaption>
 
 
 Yes, as well as GPS Geotagging of photographs, the Panasonic LUMIX DMC-TZ30 (ZS20) and Panasonic LUMIX DMC-TZ40 (LZ30) come with Map Data that you can use to find your way to your next photo shooting location, or back to your hostel if you find yourself lost!
@@ -31,10 +29,10 @@ It took a bit of Googling, but I eventually found a great [blog post by Roland K
 I cannot stress how thankful I am for his work and the comments on his post - **thank you Roland, and [thank you commenter Falk](http://blog.roland-kluge.de/?p=250#comment-28)**
 
 ### Introducing LUMIX Map Tool - Open Source edition :o)
-  
+
 ![My contribution to Roland Kluge's Simple Replacement for Lumix Map Tool]({{ site.imageurl }}/2014/Lumix-Map-Tool.png)
-  
-<p class="wp-caption-text">My contribution to Roland Kluge's Simple Replacement for Lumix Map Tool</p>
+
+<figcaption>My contribution to Roland Kluge's Simple Replacement for Lumix Map Tool</figcaption>
 
 
 [I've forked Roland's code](https://github.com/AndrewFreemantle/Lumix-Map-Tool "Limux-Map-Tool - source code on GitHub") and added support for the Lumix DMC-TZ40, and I thought I'd make it a little more interactive as I'm not likely to change the Map Data too often.

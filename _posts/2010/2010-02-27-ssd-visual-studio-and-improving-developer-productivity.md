@@ -1,7 +1,5 @@
 ---
 title: SSD, Visual Studio and improving developer productivity
-author: Andrew Freemantle
-layout: post
 permalink: /2010/02/ssd-visual-studio-and-improving-developer-productivity/
 tags:
   - Productivity
@@ -13,7 +11,7 @@ After [reading](http://www.tomshardware.com/reviews/windows-ssd-performance,2518
 I was unsure because there is a [consensus of small writes to SSDs aren't as breathtaking](http://en.wikipedia.org/wiki/Solid-state_drive#Disadvantages "SSD Disadvantages - www.wikipedia.org") as the reads and writes of larger files:
 
 > SATA-based SSDs generally exhibit much slower write speeds. As erase blocks on flash-based SSDs generally are quite large (e.g. 0.5 - 1 megabyte), they are far slower than conventional disks during small writes (*write amplification* effect) and can suffer from write fragmentation.
-> 
+>
 > \- Wikipedia
 
 But these things are fast at everything else, and while mulling over the idea of upgrading for a few months, I started to notice my usage patterns of switching between lots of different supporting applications. **Given that'd I'd get improvements elsewhere if not in Visual Studio, I decided to try it out for myself.**
@@ -22,7 +20,7 @@ The SSD I chose is the Corsair CMFSSD-64D1, otherwise known as the [Corsair Extr
 
 ![Corsair Extreme X64 Solid State Disk]({{ site.imageurl }}2010/CorsairExtremeX64SSD.png)
 
-Here are the timings I took with the original Samsung 80GB 7,200rpm drive, and the timings from the [Corsair Extreme X64](http://www.amazon.co.uk/gp/product/B002HQ2JXG?ie=UTF8&tag=fatl-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=B002HQ2JXG "Corsair Extreme Series X64 - Amazon.co.uk"):  
+Here are the timings I took with the original Samsung 80GB 7,200rpm drive, and the timings from the [Corsair Extreme X64](http://www.amazon.co.uk/gp/product/B002HQ2JXG?ie=UTF8&tag=fatl-21&linkCode=as2&camp=1634&creative=19450&creativeASIN=B002HQ2JXG "Corsair Extreme Series X64 - Amazon.co.uk"):
 (all timings are in seconds, so lower numbers are better)
 
 <table class="table table-striped hdd-vs-ssd">
@@ -40,32 +38,32 @@ Here are the timings I took with the original Samsung 80GB 7,200rpm drive, and t
   <tbody>
     <tr class="hdd">
       <td class="nowrap">Samsung HDD</td>
-      <td class="align-right">42.3</td>
-      <td class="align-right">190.8</td>
-      <td class="align-right">14.7</td>
-      <td class="align-right">25.2</td>    
-      <td class="align-right">72.0</td>
-      <td class="align-right">79.0</td>
+      <td style="text-align:right">42.3</td>
+      <td style="text-align:right">190.8</td>
+      <td style="text-align:right">14.7</td>
+      <td style="text-align:right">25.2</td>
+      <td style="text-align:right">72.0</td>
+      <td style="text-align:right">79.0</td>
     </tr>
     <tr class="ssd">
       <td class="nowrap">Corsair X64 SSD</td>
-      <td class="align-right">32.6</td>
-      <td class="align-right">75.8</td>
-      <td class="align-right">5.5</td>
-      <td class="align-right">7.9</td>
-      <td class="align-right">19.1</td>
-      <td class="align-right">52.5</td>
+      <td style="text-align:right">32.6</td>
+      <td style="text-align:right">75.8</td>
+      <td style="text-align:right">5.5</td>
+      <td style="text-align:right">7.9</td>
+      <td style="text-align:right">19.1</td>
+      <td style="text-align:right">52.5</td>
     </tr>
   </tbody>
-  <tfoot>
+  <tfoot style="font-weight:bold">
     <tr>
       <td></td>
-      <td class="align-right">22.8%</td>
-      <td class="align-right">60.3%</td>
-      <td class="align-right">63.0%</td>
-      <td class="align-right">68.4%</td>
-      <td class="align-right">73.5%</td>
-      <td class="align-right">33.5%</td>
+      <td style="text-align:right">22.8%</td>
+      <td style="text-align:right">60.3%</td>
+      <td style="text-align:right">63.0%</td>
+      <td style="text-align:right">68.4%</td>
+      <td style="text-align:right">73.5%</td>
+      <td style="text-align:right">33.5%</td>
     </tr>
   </tfoot>
 </table>
@@ -101,4 +99,4 @@ I had taken the timings the week before I found this out, and with a clean SSD i
 
 Fortuitously, the Corsair SSD arrived the same morning that the Samsung HDD exhibited the fault. (I know what you're thinking, and no, it definitely wasn't sabotage.. the SSD was on order for 2 weeks prior, and wasn't due to arrive for another 3 days)
 
-The Solid State Drive upgrade is a definite improvement, and I don't think I'll be buying Hard Disk Drives any more  <i class="fa fa-smile-o"></i>
+The Solid State Drive upgrade is a definite improvement, and I don't think I'll be buying Hard Disk Drives any more 🙂

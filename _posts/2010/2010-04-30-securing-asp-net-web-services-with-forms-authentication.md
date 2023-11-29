@@ -1,7 +1,5 @@
 ---
 title: Securing ASP.Net Web Services with Forms Authentication
-author: Andrew Freemantle
-layout: post
 permalink: /2010/04/securing-asp-net-web-services-with-forms-authentication/
 tags:
   - ASP.Net
@@ -10,4 +8,4 @@ tags:
 ---
 My first article for [Dot Net Slackers on Securing ASP.Net Web Services with Forms Authentication](http://dotnetslackers.com/articles/aspnet/Securing-ASP-Net-Web-Services-with-Forms-Authentication.aspx "Securing ASP.Net Web Services with Forms Authentication") is up!
 
-Have a read and let me know what you think - any feedback about the content, the writing style, the amount of code, or anything else (!) is greatly appreciated  <i class="fa fa-smile-o"></i>
+Have a read and let me know what you think - any feedback about the content, the writing style, the amount of code, or anything else (!) is greatly appreciated 🙂

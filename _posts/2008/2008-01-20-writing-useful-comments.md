@@ -1,7 +1,5 @@
 ---
 title: Writing useful comments
-author: Andrew Freemantle
-layout: post
 permalink: /2008/01/writing-useful-comments/
 tags:
   - Comments

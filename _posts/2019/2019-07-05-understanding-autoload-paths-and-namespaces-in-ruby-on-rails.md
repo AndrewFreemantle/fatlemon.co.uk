@@ -1,8 +1,7 @@
 ---
 title: 'Understanding autoload_paths and namespaces in Ruby on Rails'
-author: Andrew Freemantle
-layout: post
 permalink: /2019/07/understanding-autoload-paths-and-namespaces-in-ruby-on-rails/
+excerpt: 'Finding myself seeing <em>NameError: uninitialized</em> too often, I took a little time out to truely understand how the Spring preloader conventions in Rails actually works'
 tags:
   - Rails
   - Rails 5
@@ -17,13 +16,15 @@ As I work on larger and more complex Rails projects I use namespaces and directo
 The [official documentation](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html) is comprehensive, but to me this subject reads at an intermediate to advanced level - I’m pretty sure I had missed something basic so it was time for a little investigation.
 
 <div class="panel panel-warning">
-  <div class="panel-body bg-warning text-muted">
+  <div class="panel-body bg-warning text--muted">
     <em>Skip the investigation and go straight to <a href="#summary" title="skip to the Summary (on this page)">the summary</a></em><i class="fa fa-fw fa-arrow-down"></i>
   </div>
 </div>
 
-Using Ruby on Rails we start with a new app, a single `Product` model, and a `PriceCalculator` whose location we'll play with: <span class="text-muted">*(I'm using Rails 5.2.3 here)*  
-<i class="fa fa-terminal"></i>`rails new MyApp --api && cd MyApp`  
+Using Ruby on Rails we start with a new app, a single `Product` model, and a `PriceCalculator` whose location we'll play with: <span class="text--muted">*(I'm using Rails 5.2.3 here)*
+
+<i class="fa fa-terminal"></i>`rails new MyApp --api && cd MyApp`
+
 <i class="fa fa-terminal"></i>`rails g model product name:string sku:string:index 'price:decimal{10,2}'`
 ``` console
 Running via Spring preloader in process 20474
@@ -34,7 +35,8 @@ Running via Spring preloader in process 20474
       create      test/models/product_test.rb
       create      test/fixtures/products.yml
 ```
-<i class="fa fa-terminal"></i>`rails db:migrate`  
+<i class="fa fa-terminal"></i>`rails db:migrate`
+
 Then we need some test data..
 ``` ruby
 # test/fixtures/products.yml
@@ -63,8 +65,10 @@ class PriceCalculatorTest < ActiveSupport::TestCase
   end
 end
 ```
-..which when run with the following command..  
-<i class="fa fa-terminal"></i>`rails test test/product_calculators/product_discount_calculator_test.rb`  
+..which when run with the following command..
+
+<i class="fa fa-terminal"></i>`rails test test/product_calculators/product_discount_calculator_test.rb`
+
 ..resulting in a `NameError: uninitialized constant`
 ``` console
 E
@@ -92,7 +96,8 @@ Now, when we re-run our rails test we get the same error - **our new class isn't
 
 > `autoload_paths` is computed and cached during the initialization process. The application needs to be restarted to reflect any changes in the directory structure.
 
-We can check this is the reason by viewing the cached paths with the following command:  
+We can check this is the reason by viewing the cached paths with the following command:
+
 <i class="fa fa-terminal"></i>`bin/rails r 'puts ActiveSupport::Dependencies.autoload_paths'`
 ``` console
 Running via Spring preloader in process 21407
@@ -111,8 +116,10 @@ Running via Spring preloader in process 21407
 ../ruby/gems/2.6.0/gems/activestorage-5.2.3/app/models
 /MyApp/test/mailers/previews
 ```
-Yep, no mention of our new `app/calculators` directory. In development, [Spring](https://github.com/rails/spring) caches the directories so restarting our application after creating directories is akin to saying "restart Spring"..  
-<i class="fa fa-terminal"></i>`spring stop`  
+Yep, no mention of our new `app/calculators` directory. In development, [Spring](https://github.com/rails/spring) caches the directories so restarting our application after creating directories is akin to saying "restart Spring"..
+
+<i class="fa fa-terminal"></i>`spring stop`
+
 <i class="fa fa-terminal"></i>`bin/rails r 'puts ActiveSupport::Dependencies.autoload_paths'`
 ``` console
 Running via Spring preloader in process 21462
@@ -132,7 +139,8 @@ Running via Spring preloader in process 21462
 ../ruby/gems/2.6.0/gems/activestorage-5.2.3/app/models
 /MyApp/test/mailers/previews
 ```
-Our new directory is found, so if we re-run our test..  
+Our new directory is found, so if we re-run our test..
+
 <i class="fa fa-terminal"></i>`rails test test/product_calculators/product_discount_calculator_test.rb`
 ``` console
 # Running:
@@ -141,11 +149,13 @@ Our new directory is found, so if we re-run our test..
 
 Finished in 0.028790s, 34.7343 runs/s, 34.7343 assertions/s.
 ```
-Excellent. No `require` or `require_relative` required, and no change to `autoload_paths` or our application's configuration either.  
+Excellent. No `require` or `require_relative` required, and no change to `autoload_paths` or our application's configuration either.
 
 ## Adding namespaces
-Organising our classes in sub-directories of `app/` is fine for smaller applications buy say we now wanted the following directory structure: `app/calculators/pricing/price_calculator.rb`  
-<i class="fa fa-terminal"></i>`mkdir app/calculators/pricing && mv app/calculators/*.rb app/calculators/pricing/`  
+Organising our classes in sub-directories of `app/` is fine for smaller applications buy say we now wanted the following directory structure: `app/calculators/pricing/price_calculator.rb`
+
+<i class="fa fa-terminal"></i>`mkdir app/calculators/pricing && mv app/calculators/*.rb app/calculators/pricing/`
+
 <i class="fa fa-terminal"></i>`spring stop && rails test test/product_calculators/product_discount_calculator_test.rb`
 ``` console
 # Running:
@@ -158,7 +168,7 @@ NameError: uninitialized constant PriceCalculatorTest::PriceCalculator
     test/product_calculators/product_discount_calculator_test.rb:6:in `block in <class:PriceCalculatorTest>'
 ```
 
-If we inspect the list of `autoload_paths` again, we see our top-level `app/calculators` path so Rails needs a bit more of a hint to find our calculator..  
+If we inspect the list of `autoload_paths` again, we see our top-level `app/calculators` path so Rails needs a bit more of a hint to find our calculator..
 We need to add a `Pricing::` namespace to consumers of our moved calculator class..
 ``` ruby
 # test/product_calculators/product_discount_calculator_test.rb
@@ -196,7 +206,8 @@ module Pricing
   end
 end
 ```
-If we run our test again now it passes:  
+If we run our test again now it passes:
+
 <i class="fa fa-terminal"></i>`rails test test/product_calculators/product_discount_calculator_test.rb`
 ``` console
 # Running:
@@ -210,7 +221,7 @@ Finished in 0.023214s, 43.0775 runs/s, 43.0775 assertions/s.
 Fine, but why don't we need to start the namespace with `Calculators::`? - well, this too is a Rails convention and explained in the documention:
 > Rails has a collection of directories similar to `$LOAD_PATH` in which to look up `post.rb`. That collection is called `autoload_paths` and by default it contains:
 >
-> * All subdirectories of app in the application and engines present at boot time. For example, `app/controllers`. They do not need to be the default ones, any custom directories like `app/workers` belong automatically to `autoload_paths`.  
+> * All subdirectories of app in the application and engines present at boot time. For example, `app/controllers`. They do not need to be the default ones, any custom directories like `app/workers` belong automatically to `autoload_paths`.
 > * ...
 
 Therefore our custom `app/calculators` directory is automatically added.. as we saw earlier!
@@ -243,10 +254,13 @@ module Pricing
   end
 end
 ```
-then move it into a directory with the same namespace structure:  
-<i class="fa fa-terminal"></i>`mkdir app/calculators/pricing/widget_pricing && mv app/calculators/pricing/*.rb app/calculators/pricing/widget_pricing/`  
-test again..  
-<i class="fa fa-terminal"></i>`spring stop && rails test test/product_calculators/product_discount_calculator_test.rb`  
+then move it into a directory with the same namespace structure:
+
+<i class="fa fa-terminal"></i>`mkdir app/calculators/pricing/widget_pricing && mv app/calculators/pricing/*.rb app/calculators/pricing/widget_pricing/`
+
+test again..
+
+<i class="fa fa-terminal"></i>`spring stop && rails test test/product_calculators/product_discount_calculator_test.rb`
 and..
 ``` console
 # Running:
@@ -376,7 +390,7 @@ class PriceCalculatorTest < ActiveSupport::TestCase
   end
 end
 ```
-That's clearer  <i class="fa fa-smile-o text-warning"></i>
+That's clearer, if a little exaggerated for the purposes of experimentation and illustration 🙂
 
 
 ## Summary
@@ -384,7 +398,7 @@ Rails convention over configuration lets us organise our classes into nested nam
 
 <div class="panel panel-warning">
   <div class="panel-body bg-warning">
-    <i class="fa fa-sticky-note"></i><strong>There are 3 things to remember:</strong>
+    <i class="fa fa-fw fa-sticky-note"></i><strong>There are 3 things to remember:</strong>
     <ol>
       <li>Our application's code should live in <code>/app/..</code> - personally I recommend <code>/app/lib/{sub_directory}/..</code> so we can use <code>{sub_directory}</code> as the start of our namespacing: e.g. <code>app/lib/calculators/... -> Calculators::...</code></li>
       <li>When moving files around or creating new directories we need to restart <code>Spring</code> (<i class="fa fa-terminal"></i><code>spring stop</code>)</li>

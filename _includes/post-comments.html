@@ -1,9 +1,0 @@
-{% if post %}
-  {% assign posturl = post.url %}
-{% else %}
-  {% assign posturl = page.url %}
-{% endif %}
-
-<span class="post-comments text-muted">
-	<i class="fa fa-fw fa-comments"></i> <a href="{{ site.url }}{{ posturl }}#disqus_thread" title="Comments"> 0 Comments</a>
-</span>

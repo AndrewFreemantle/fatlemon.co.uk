@@ -1,7 +1,5 @@
 ---
 title: How far should your unit tests go?
-author: Andrew Freemantle
-layout: post
 permalink: /2008/02/how-far-should-your-unit-tests-go/
 categories:
   - Uncategorized
@@ -11,10 +9,10 @@ tags:
 ---
 I don't think it would be appropriate to talk about Unit Testing without first starting with the bigger picture of Agile Software Engineering Methodologies.
 
-I started working to the Agile methodologies, as described by [Robert C. Martin](http://www.amazon.co.uk/gp/product/0135974445/ref=as_li_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=0135974445&tag=fatl-21&linkCode=as2 "Amazon Books: Robert C. Martin - Agile Software Development: Principles, Patterns and Practices") about 18 months ago. It was hard not to see it as a 'magic bullet' that enables the production of quality software because it just made so much sense to me. Here's [Steve McConnell's view of Agile development](http://forums.construx.com/blogs/stevemcc/archive/2007/10/08/5-questions-on-agile-development.aspx "5 Questions on Agile Development - 10x Software Development"):
+I started working to the Agile methodologies, as described by [Robert C. Martin](https://uk.bookshop.org/p/books/agile-software-development-principles-patterns-and-practices-pearson-new-international-edition-robert-martin/4676174?ean=9781292025940 "Robert C. Martin - Agile Software Development: Principles, Patterns and Practices") about 18 months ago. It was hard not to see it as a 'magic bullet' that enables the production of quality software because it just made so much sense to me. Here's [Steve McConnell's view of Agile development](http://forums.construx.com/blogs/stevemcc/archive/2007/10/08/5-questions-on-agile-development.aspx "5 Questions on Agile Development - 10x Software Development"):
 
 > *Q4: What is the future of Agile?*
-> 
+>
 > *Agile has largely become a synonym for "modern software practices that work" so I think the future of Agile with a capital "A" is the same as the past of Object Oriented or Structured. We rarely talk about Object Oriented programming anymore; it's just programming. Similarly, I think Agile has worked its way into the mainstream such that __within the next few years we won't talk about Agile much anymore; we'll just talk about programming__, and it will be assumed that everyone means Agile whenever that's appropriate.*
 
 I have emphasised Steve's sentence that beautifully sums up Agile for me - 'Agile' is my definition of programming.

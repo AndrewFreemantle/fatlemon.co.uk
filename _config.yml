@@ -1,36 +1,80 @@
-# Dependencies
+# Setup
 markdown:         kramdown
 highlighter:      rouge
-
-# Permalinks
+exclude:          ['README.md', 'Gemfile', 'Gemfile.lock']
 permalink:        pretty
 
-# Setup
-title:            'FatLemon'
-header-title-sm:  "Andrew Freemantle's blog"
-header-title-xs:  "Andrew's blog"
-tagline:          'Contemplations on software development and human factors'
-welcome-message:  'Hi, welcome to my blog about software development and human factors'
-url:              'http://www.fatlemon.co.uk'
-paginate:         3
-baseurl:          ''
-imageurl:         '/public/images/'
-author:
-  name:           'Andrew Freemantle'
-  url:            http://www.fatlemon.co.uk
-  email:          andrew@fatlemon.co.uk
-
-# Handling Reading
-exclude:          ['README.md', 'Gemfile', 'Gemfile.lock']
-
-# Handling
-# - rewrites / redirects (for post slugs)
-# - pagination
-# - json feed generation
+# Plugins
 plugins:
   - jekyll-redirect-from
   - jekyll-paginate
   - jekyll-json-feed
+  - jekyll-include-cache
 
-# Serving
-host:             0.0.0.0
+# Site
+title:            'Fat Lemon'
+url:              'https://www.fatlemon.co.uk'
+paginate:         6
+baseurl:          ''
+imageurl:         '/public/images/'
+
+# n.b. FontAwesome v5 icon search: https://fontawesome.com/v5/search
+
+# Theme and theme configuration
+remote_theme:     'mmistakes/minimal-mistakes@4.24.0'
+locale:           'en-GB'
+date_format:      '%a %-d %B %Y'
+words_per_minute: 150
+search:           true
+
+# Author
+author:
+  name:           'Andrew Freemantle'
+  avatar:         'https://www.gravatar.com/avatar/b873b1a5199eeefff7a7c1531f02324a?s=128&r=PG'
+  bio:            'Hi, welcome to my blog about software development and human factors'
+  location:       'Newcastle upon Tyne, U.K.'
+  url:            'https://www.fatlemon.co.uk'
+  links:
+    - label:      'Stack Overflow'
+      icon:       'fa-brands fa-fw fa-stack-overflow'
+      url:        'http://stackoverflow.com/users/5662/andrew'
+    - label:      'GitHub'
+      icon:       'fa-brands fa-fw fa-github'
+      url:        'https://github.com/AndrewFreemantle'
+    - label:      'Travel Writing'
+      icon:       'fas fa-fw fa-hiking'
+      url:        'https://www.twoyeartrip.com/blog'
+    - label:      '(Twitter)'
+      icon:       'fa-brands fa-fw fa-x-twitter'
+      url:        'https://twitter.com/fatlemon'
+    - label:      'Email'
+      icon:       'fa-regular fa-fw fa-envelope'
+      url:        'mailto:andrew--AT--fatlemon.co.uk'
+
+# Theme defaults
+defaults:
+  # all
+  - scope:
+      path:           ''
+    values:
+      author_profile: true
+      comments:       false
+      sidebar:
+        - text:       '<h3 style="font-size:0.85em">My Company</h3>
+                      <a href="https://www.rentbook.io" style="text-decoration:none;color:inherit">
+                        <img class="rentbook-logo" src="/public/images/rentbook-logo-18px.png" alt="rentbook logo" style="width:18px" width="18px" height="16px"> <span style="color:#5755d9"><strong>rent</strong>book</span> - <span class="text--muted">Property Management for busy Landlords</span>
+                      </a>'
+        - text:       '<p style="font-size: 0.6em; margin-top: 3em;">
+                        <img src="https://i.creativecommons.org/l/by/4.0/80x15.png" style="display:block;margin-bottom:0.5em;width:80px" width="80px" height="15px">
+                        All of my writing is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, please respect my work by acknowledging the source.
+                      </p>'
+  # _posts
+  - scope:
+      path:           ''
+      type:           posts
+    values:
+      layout:         single
+      show_date:      true
+      read_time:      true
+      share:          false
+      related:        true

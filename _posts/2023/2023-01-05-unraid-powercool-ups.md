@@ -1,8 +1,7 @@
 ---
 title: 'Unraid + Powercool UPS'
-author: Andrew Freemantle
-layout: post
 permalink: /2023/01/unraid-powercool-ups/
+excerpt: 'A short guide to configuring the Powercool UPS (Uninterruptible Power Supply) to work with Unraid'
 tags:
   - Unraid OS
   - UPS
@@ -13,14 +12,14 @@ tags:
 <p style="text-align:center">
   <img alt="Powercool 850va UPS listing at Scan Computers" src="{{ site.imageurl }}2023/powercool-ups/powercool-850va-ups-at-scan-computers.png" />
 </p>
-<p class="wp-caption-text">Getting this generic UPS working with Unraid OS took a little work...</p>
+<figcaption>Getting this generic UPS working with Unraid OS took a little work...</figcaption>
 
 Unraid OS has had built-in support for uninterruptible power supplies (UPSs) for a while now, and it's been on my list to install one since setting up this very capable backup server.
 
 However, it isn't as straightforward as plugging in the USB cable, so here's the configuration needed to get this Powercool 850va UPS working with Unraid OS.
 
 ### 1. Disable Unraid's built-in UPS support
-*This disables the built-in `apcupsd` daemon which <span class="text-danger">doesn't</span> support our UPS*
+*This disables the built-in `apcupsd` daemon which <span class="text--danger">doesn't</span> support our UPS*
 
 In `Settings` <i class="fa fa-arrow-right"></i> `UPS Settings` ensure we have the following configuration:
 - Start APC UPS daemon: **No**
@@ -67,7 +66,7 @@ Then back at the top of the NUT Settings page, start the service using our just 
 
 Once saved, Unraid now knows how to monitor our new Powercool UPS 🔌 🙌
 
-*(P.S. Don't forget to set the BIOS Power State to `Always On` so the UPS can turn the server back on after a power failure 🙂)*
+*P.S. Don't forget to set the BIOS Power State to `Always On` so the UPS can turn the server back on after a power failure 🙂*
 
 ![Configure the NUT plugin to see our Powercool UPS]({{ site.imageurl }}2023/powercool-ups/unraid-nut-status.png)
 

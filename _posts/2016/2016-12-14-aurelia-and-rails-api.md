@@ -1,7 +1,5 @@
 ---
 title: 'Aurelia with a Rails API'
-author: Andrew Freemantle
-layout: post
 permalink: /2016/12/aurelia-with-a-rails-api/
 tags:
   - Aurelia
@@ -10,34 +8,30 @@ tags:
   - Rails API
 ---
 
-
 At the end of [Aurelia's Contact Manager Tutorial](http://aurelia.io/docs/tutorials/creating-a-contact-manager#next-steps) the first 'Next Step' is:
 <blockquote>
 Create a real backend for the app and use the <code>http-client</code> or <code>fetch-client</code> to retrieve data
 </blockquote>
 
-<div class="panel panel-info">
-  <div class="panel-body bg-info">
-    <i class="fa fa-hand-stop-o fa-3x fa-pull-left text-info"></i> As with most things, there's more than one way to skin a cat. <em>This is not the only way to combine <a href="http://aurelia.io/">Aurelia</a> and <a href="http://rubyonrails.org/">Rails</a></em>. In all likelihood it's not the best way either - as I write this in December 2016 I'm new to Aurelia, I'm by no means an expert at Rails, and I'm still learning about modern front-end web development.
-  </div>
+<div class="notice--info">
+  <i class="fa-regular fa-hand-paper fa-3x fa-pull-left text--info"></i> As with most things, there's more than one way to skin a cat. <em>This is not the only way to combine <a href="http://aurelia.io/">Aurelia</a> and <a href="http://rubyonrails.org/">Rails</a></em>. In all likelihood it's not the best way either - as I write this in December 2016 I'm new to Aurelia, I'm by no means an expert at Rails, and I'm still learning about modern front-end web development.
 </div>
 
 My aim was to be as in-keeping with both frameworks as possible. This is straightforward because Aurelia borrows some of the core principles from Rails: convention over configuration and clean, simple models.<sup>[source](http://herdingcode.com/herding-code-203-rob-eisenberg-on-aurelia)</sup>
 
 
 ### Table of Contents
-<ul class="list-unstyled">
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#installing-rails">Installing Rails</a></h4></li>
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#a-rails-contacts-api">A Rails Contacts API</a></h4></li>
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#fetching-a-rails-api">Fetching that API</a></h4></li>
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#cross-origin-resource-sharing">A CORS interlude</a></h4></li>
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#preparing-for-release">Preparing for Release</a></h4></li>
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#serving-the-app">Serving the app with the Rails Asset Pipeline</a></h4></li>
-	<li><h4><i class="fa fa-fw fa-angle-right"></i><a href="#wrap-up">Wrap up</a> - <a href="#development-workflow">Development Workflow</a> & <a href="#release-workflow">Release Workflow</a></h4></li>
-</ul>
+
+- [Installing Rails](#installing-rails)
+- [A Rails Contacts API](#a-rails-contacts-api)
+- [Fetching that API](#fetching-data-from-a-rails-api-with-aurelia)
+- [A CORS interlude](#cross-origin-resource-sharing)
+- [Preparing for Release](#preparing-for-release)
+- [Serving the app with the Rails Asset Pipeline](#serving-the-app-with-the-rails-asset-pipeline)
+- [Wrap up](#wrap-up) - [Development Workflow](#development-workflow) & [Release Workflow](#release--deployment-workflow)
 
 
-<h2 id="installing-rails">Installing Rails</h2>
+## Installing Rails
 Picking up at the end of the [Aurelia Contact Manager Tutorial](http://aurelia.io/hub.html#/doc/article/aurelia/framework/latest/contact-manager-tutorial), and assuming our project folder is `~/contact-manager`..
 
 Drop back to the parent folder from our Aurelia Contact Manager app
@@ -50,9 +44,8 @@ We'll want to persist the Contacts to a database at some point, but although we'
 
 <i class="fa fa-terminal"></i>`rails new contact-manager -d postgresql --api --skip-action-cable --skip-turbolinks`
 
-<div class="panel panel-warning">
-	<div class="panel-body bg-warning">
-		<i class="fa fa-sticky-note"></i>Side note: It's likely that the <code>rails new ...</code> will prompt us to overwrite <code>.gitignore</code>. I'd chose <kbd>n</kbd>o and just paste in the default Rails <code>.gitignore</code> rules which I've included here for completeness. It's a shame there's no option to merge..
+<div class="notice--warning">
+  <i class="fa fa-fw fa-sticky-note text--warning"></i>Side note: It's likely that the <code>rails new ...</code> will prompt us to overwrite <code>.gitignore</code>. I'd chose <kbd>n</kbd>o and just paste in the default Rails <code>.gitignore</code> rules which I've included here for completeness. It's a shame there's no option to merge..
 {% highlight bash %}
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 #
@@ -72,7 +65,6 @@ We'll want to persist the Contacts to a database at some point, but although we'
 # Ignore Byebug command history file.
 .byebug_history
 {% endhighlight %}
-	</div>
 </div>
 
 <i class="fa fa-terminal"></i>`cd contact-manager`
@@ -83,10 +75,10 @@ Before we create our database, I always give `./config/database.yml` a once-over
 
 <i class="fa fa-terminal"></i>`rails server` - check it's working - "Yay! You're on Rails!"
 
-![]({{ site.imageurl }}2016/aurelia-rails-yay-youre-on-rails.png)
-<p class="wp-caption-text">Yay! <i class="fa fa-smile-o"></i></p>
+![Screenshot of the Ruby on Rails welcome page]({{ site.imageurl }}2016/aurelia-rails-yay-youre-on-rails.png)
+<figcaption>Yay! 🙂</figcaption>
 
-<h2 id="a-rails-contacts-api">A Rails Contacts API</h2>
+## A Rails Contacts API
 First, let's change the code-only `WebAPI` from the demo to a Rails API backed implemenation. The first thing we need to define is our Rails API and Rails makes that really easy..
 
 {% highlight ruby %}
@@ -95,7 +87,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :contacts
-
 end
 {% endhighlight %}
 
@@ -103,7 +94,7 @@ Let's check our route configuration which tell us which methods we need to imple
 
 <i class="fa fa-terminal"></i>`rake routes`  (we can leave our Rails server running in another Terminal tab)..
 
-```
+``` console
 $ rake routes
   Prefix Verb   URI Pattern             Controller#Action
 contacts GET    /contacts(.:format)     contacts#index
@@ -120,7 +111,7 @@ Obviously, we now need a Contacts controller..
 
 Now we can update our newly minted Contacts Controller so it mimics the funcionality of the Aurelia `WebAPI` by implementing the `index` and `show` methods like so:
 
-{% highlight ruby %}
+``` ruby
 # ./app/controllers/contacts_controller.rb
 class ContactsController < ApplicationController
 
@@ -187,14 +178,19 @@ class ContactsController < ApplicationController
   def destroy
   end
 end
-{% endhighlight %}
+```
 
 We can check our handiwork by pointing our browser to [http://localhost:3000/contacts](http://localhost:3000/contacts) where we should see our list of contacts rendered as JSON data into the browser like so:
 
 ![Browser screenshot showing Rails API Contacts List data in JSON format]({{ site.imageurl }}2016/aurelia-rails-contacts-list-via-api.png)
-<p class="wp-caption-text"><i class="fa fa-sticky-note"></i>Side note: I'm using the <a href="https://github.com/callumlocke/json-formatter">JSON Formatter Extension for Google Chrome</a> by Callum Locke. Thanks Callum!</p>
 
-<h2 id="#fetching-a-rails-api">Fetching data from a Rails API with Aurelia</h2>
+<div class="notice--info">
+  <i class="fa fa-fw fa-sticky-note text--info"></i>Side note: I'm using the <a href="https://github.com/callumlocke/json-formatter">JSON Formatter Extension for Google Chrome</a> by Callum Locke. Thanks Callum!
+</div>
+
+
+
+## Fetching data from a Rails API with Aurelia
 
 Now let's modify the tutorial's `WebAPI` to pull our data. Following [the documentation for Aurelia's HTTP Services](http://aurelia.io/hub.html#/doc/article/aurelia/fetch-client/latest/http-services) we'll also need a `fetch` polyfill as [it's still being implemented by the Browsers](http://caniuse.com/#feat=fetch)<sup>[Dec 2016]</sup> - to the command line..
 
@@ -202,7 +198,7 @@ Now let's modify the tutorial's `WebAPI` to pull our data. Following [the docume
 
 Then we can add them to our dependencies:
 
-{% highlight js %}
+``` javascript
 // ./aurelia_project/aurelia.json
 "build": {
   ...
@@ -213,7 +209,7 @@ Then we can add them to our dependencies:
   ]
   ...
  }
-{% endhighlight %}
+```
 
 Before we start using them, let's check that the Aurelia bit still builds:
 
@@ -223,7 +219,7 @@ Before we start using them, let's check that the Aurelia bit still builds:
 
 Edit our new fetch version of the `getContactList()` method to look like so:
 
-{% highlight js %}
+``` javascript
 // ./src/web-api-fetch.js
 import { HttpClient } from 'aurelia-fetch-client';
 let client = new HttpClient();
@@ -251,39 +247,35 @@ let client = new HttpClient();
     });
   }
 ...
-{% endhighlight %}
+```
 
 Now we can swap out the in-memory WebAPI for our Rails API..
-{% highlight js %}
+``` javascript
 // ./src/contact-list.js
 import {WebAPI} from './web-api';         // change this..
 import {WebAPI} from './web-api-fetch';   // ..to this
 ...
-{% endhighlight %}
-
+```
 
 If we take a look at our app ([http://localhost:9000](http://localhost:9000) - which will have automatically refreshed if we have an Aurelia CLI <i class="fa fa-terminal"></i>`au run --watch` sitting in a terminal somewhere. Start one if you haven't) we see that it's..
 
 **_empty.._**
 
 ![Screenshot of our app in the web browser with no data - it's broken]({{ site.imageurl }}/2016/aurelia-rails-contact-list-via-api-broken-cors.png)
-<p class="wp-caption-text">Oops, we've broken it..</p>
+<figcaption>Oops, we've broken it..</figcaption>
 
 A quick look at our browser javascript console shows us the reason.. **CORS**..
 
 ![Screenshot of the web browser developer tools console showing the Cross Origin Resource Sharing error]({{ site.imageurl }}/2016/aurelia-rails-contact-list-via-api-broken-cors-browser-console-error.png)
-<p class="wp-caption-text">Of CORS! <b>ba-dum tish*</b></p>
+<figcaption>Of CORS! <b>ba-dum tish*</b> 😜</figcaption>
 
-<div id="#cross-origin-resource-sharing" class="panel panel-warning">
-  <div class="panel-heading">
-    <h3 class="panel-title">Cross-Origin Resource Sharing (CORS)</h3>
-  </div>
-  <div class="panel-body">
-<p>Essentially, our default Rails 5 API which is being hosted on port 3000 (<a href="http://localhost:3000">http://localhost:<b>3000</b></a>) is refusing to service requests from our Aurelia front-end which is being hosted on port 9000 (<a href="http://localhost:9000">http://localhost:<b>9000</b></a>).</p>
+<div id="#cross-origin-resource-sharing" class="notice--warning">
+  <h4 class="text--warning">Cross-Origin Resource Sharing (CORS)</h4>
+  <p>Essentially, our default Rails 5 API which is being hosted on port 3000 (<a href="http://localhost:3000">http://localhost:<b>3000</b></a>) is refusing to service requests from our Aurelia front-end which is being hosted on port 9000 (<a href="http://localhost:9000">http://localhost:<b>9000</b></a>).</p>
 
-<p>In production this won't be an issue as they'll both be hosted from the same origin, but if we wish to use the Aurelia CLI development toolchain (or WebPack, gulp, grunt, burp, etc..) then we'll need to configure our Rails API to allow CORS in development. Thankfully that's easy too..</p>
+  <p>In production this won't be an issue as they'll both be hosted from the same origin, but if we wish to use the Aurelia CLI development toolchain (or WebPack, gulp, grunt, burp, etc..) then we'll need to configure our Rails API to allow CORS in development. Thankfully that's easy too..</p>
 
-First we need to enable the CORS middleware by un-commenting it in our Gemfile, but adding the <code>group:</code> constraint:
+  First we need to enable the CORS middleware by un-commenting it in our Gemfile, but adding the <code>group:</code> constraint:
 {% highlight ruby %}
 # ./Gemfile
 ...
@@ -292,7 +284,7 @@ gem 'rack-cors', group: :development
 ...
 {% endhighlight %}
 
-Then un-comment the default configuration Rails included for us, but we'll enclose it in an <code>if Rails.env.development? then ... end</code> block..
+  Then un-comment the default configuration Rails included for us, but we'll enclose it in an <code>if Rails.env.development? then ... end</code> block..
 {% highlight ruby %}
 # config/initializers/cors.rb
 if Rails.env.development? then
@@ -308,23 +300,22 @@ if Rails.env.development? then
 end
 {% endhighlight %}
 
-<p>That's it. We just need to install the missing gem and restart our server</p>
-<ol>
-  <li>Stop our <code>rails server</code> with <kbd>Ctrl</kbd>+<kbd>C</kbd></li>
-  <li>Run <i class="fa fa-terminal"></i><code>bundle install</code></li>
-  <li>Then restart it: <i class="fa fa-terminal"></i><code>rails server</code></li>
-</ol>
-  </div>
+  That's it. We just need to install the missing gem and restart our server
+  <ol>
+    <li>Stop our <code>rails server</code> with <kbd>Ctrl</kbd>+<kbd>C</kbd></li>
+    <li>Run <i class="fa fa-terminal"></i><code>bundle install</code></li>
+    <li>Then restart it: <i class="fa fa-terminal"></i><code>rails server</code></li>
+  </ol>
 </div>
 
 Refresh, and we see that the Contact List does indeed show the list of contacts from the Rails API - notice that we appended '-Rails' to the last names so we could tell where our data was coming from..
 
 ![Screenshot of our app working in development - Contact List is from Rails, but the Profile Details aren't yet]({{ site.imageurl }}/2016/aurelia-rails-contacts-list-via-api-in-app-details-todo-annotated.png)
-<p class="wp-caption-text">Fixed! Our separately hosted Aurelia frontend and Rails API backend can now talk to each other in development</p>
+<figcaption>Fixed! Our separately hosted Aurelia frontend and Rails API backend can now talk to each other in development</figcaption>
 
 That's great, but the Profile panel details on the right are showing the non-Rails-backed data, so next we need to make the same two changes to the Aurelia Contact Details component. First, we'll update the method to fetch the data from our Rails backend..
 
-{% highlight js %}
+``` javascript
 // ./src/web-api-fetch.js
 ...
   getContactDetails(id){
@@ -355,41 +346,39 @@ That's great, but the Profile panel details on the right are showing the non-Rai
     });
   }
 ...
-{% endhighlight %}
+```
 
 Then we point `src/contact-detail.js` to our new Web API..
-{% highlight js %}
+``` javascript
 // ./src/contact-detail.js
 import {WebAPI} from './web-api';         // change this..
 import {WebAPI} from './web-api-fetch';   // ..to this
 ...
-{% endhighlight %}
+```
 In our app we see that the Profile panel shows we're now fetching the details from Rails, which we can verify in the Network tab of our browser development tools, or by watching the output of our running `rails server`
 
 ![Screenshot of our app working in development - Contact List and Contact Details are now fetched from our Rails API]({{ site.imageurl }}/2016/aurelia-rails-contacts-list-via-api-in-app-details-done-annotated.png)
 
 
-<h2 id="preparing-for-release">Preparing for Release</h2>
+## Preparing for Release
 Now we've hooked up the Aurelia front-end to the Rails 5 API backend, it's about time to ask Rails to serve the Aurelia front-end files as well so we can deploy the entire application to a single server. But before we do that, we really must take care of the hard-coded API URLs in our `src/web-api-fetch.js`.
 
 As we're using the Aurelia CLI to build our front-end, we can use the existing `dev`, `stage` and `prod` configuration files they thoughtfully included.
 
-<div class="panel panel-warning">
-  <div class="panel-body bg-warning">
-    <i class="fa fa-sticky-note"></i>Side note: For the curious.. the Aurelia build environment is a handled by a pre-configured gulp task called <code>configureEnvironment()</code> which you'll find in <code>./aurelia_project/tasks/transpile.js</code>
-  </div>
+<div class="notice--warning">
+  <i class="fa fa-fw fa-sticky-note text--warning"></i>Side note: For the curious.. the Aurelia build environment is a handled by a pre-configured gulp task called <code>configureEnvironment()</code> which you'll find in <code>./aurelia_project/tasks/transpile.js</code>
 </div>
 
-{% highlight js %}
+``` javascript
 // ./aurelia_project/environments/dev.js
 export default {
   debug: true,
   testing: true,
   apiBaseUrl: 'http://localhost:3000'
 };
-{% endhighlight %}
+```
 
-{% highlight js %}
+``` javascript
 // ./aurelia_project/environments/stage.js
 // ./aurelia_project/environments/prod.js
 export default {
@@ -397,11 +386,11 @@ export default {
   testing: true,
   apiBaseUrl: ''
 };
-{% endhighlight %}
+```
 
 Next we can use our new `apiBaseURL` parameter to configure an application-wide HttpClient..
 
-{% highlight js %}
+``` javascript
 // ./src/main.js
 ...
 import { HttpClient } from 'aurelia-fetch-client';
@@ -426,10 +415,10 @@ function configureHttpContainer(container) {
 
   container.registerInstance(HttpClient, httpClient);
 }
-{% endhighlight %}
+```
 
 And the last thing to do to get this working is to update our `web-api-fetch.js` file to use our configured HttpClient..
-{% highlight js %}
+``` javascript
 // ./src/web-api-fetch.js
 import { inject } from 'aurelia-framework';
 import { HttpClient } from 'aurelia-fetch-client';
@@ -521,7 +510,7 @@ export class WebAPI {
     });
   }
 }
-{% endhighlight %}
+```
 
 The changes in the file above are:
 1. We imported the `aurelia-framework`: `import {inject} from 'aurelia-framework'`
@@ -532,7 +521,7 @@ The changes in the file above are:
 
 Because we're going to use the Aurelia CLI to bundle our front-end app and lean on the Rails Asset Pipeline to actually serve these assets, there's one last Aurelia configuration tweak we need to make - switching the output destination from `./scripts` to `./assets`:
 
-{% highlight js %}
+``` javascript
 /* ./aurelia_project/aurelia.json */
 
 {
@@ -554,14 +543,14 @@ Because we're going to use the Aurelia CLI to bundle our front-end app and lean 
   ...
   }
 }
-{% endhighlight %}
+```
 
-{% highlight html %}
+``` html
 <!-- ./index.html -->
 ...
     <script src="assets/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
 ...
-{% endhighlight %}
+```
 
 A little housekeeping..
 
@@ -576,16 +565,16 @@ Now let's try our **production** configuration..
 <i class="fa fa-terminal"></i>`au build --env prod`
 
 ![Screenshot of our app working in production - no data is shown because the URLs are now relative]({{ site.imageurl }}/2016/aurelia-rails-prod-configuration-working-annotated.png)
-<p class="wp-caption-text">No data, but it's working! - look at the <code>/contacts</code> URL - it's relative and all we did was change the <code>au --env</code> flag</p>
+<figcaption>No data, but it's working! - look at the <code>/contacts</code> URL - it's relative and all we did was change the <code>au --env</code> flag</figcaption>
 
 It correctly breaks! (?!!) - bear with me.. the URL is `/contacts` on the same server (notice the port is still `9000` - the same as in the address bar) - this proves it's working!
 
-<h2 id="serving-the-app">Serving the app with the Rails Asset Pipeline</h2>
+## Serving the app with the Rails Asset Pipeline
 There are just a few things to do at the backend to get the Rails API to serve our front-end.
 
 Enable the Rails Asset Pipeline
 
-{% highlight ruby %}
+``` ruby
 # ./config/application.rb
 require "rails"
 ...
@@ -600,25 +589,27 @@ require "action_view/railtie"
 require "sprockets/railtie"        # <-- we want sprockets! (uncomment this line)
 require "rails/test_unit/railtie"
 ...
-{% endhighlight %}
+```
 
 Next we need to tell the Asset Pipeline / sprockets which javascript files our app uses:
 
-<i class="fa fa-terminal"></i>`mkdir -p ./app/assets/javascripts && mkdir -p ./vendor/assets/javascripts`  
+<i class="fa fa-terminal"></i>`mkdir -p ./app/assets/javascripts && mkdir -p ./vendor/assets/javascripts`
+
 <i class="fa fa-terminal"></i>`touch ./app/assets/javascripts/application.js`
 
-{% highlight js %}
+``` javascript
 // ./app/assets/javascripts/application.js
 
 // These 2 files are generated by running `./au build --env prod`
 // ** DO NOT MODIFY THESE FILES DIRECTLY **
 //= require vendor-bundle
 //= require app-bundle
-{% endhighlight %}
+```
 
-Now we can copy these files.. `vendor-bundle.js` to `vendor` assets, and `app-bundle.js` to `app` assets - that make me feel warm and fuzzy inside <i class="fa fa-smile-o"></i> (we'll recap the steps needed to release the application at the end of the post..)
+Now we can copy these files.. `vendor-bundle.js` to `vendor` assets, and `app-bundle.js` to `app` assets - that make me feel warm and fuzzy inside 🙂 (we'll recap the steps needed to release the application at the end of the post..)
 
-<i class="fa fa-terminal"></i>`cp ./assets/vendor-bundle.js ./vendor/assets/javascripts/`  
+<i class="fa fa-terminal"></i>`cp ./assets/vendor-bundle.js ./vendor/assets/javascripts/`
+
 <i class="fa fa-terminal"></i>`cp ./assets/app-bundle.js ./app/assets/javascripts/`
 
 Next we need a HTML Controller to serve our `index.html`..
@@ -626,7 +617,7 @@ Next we need a HTML Controller to serve our `index.html`..
 <i class="fa fa-terminal"></i>`rails g controller Home index --skip-routes`
 
 We skipped the automatic route addition because we need to edit `./config/routes.rb` to add our site `root`..
-{% highlight ruby %}
+``` ruby
 # ./config/routes.rb
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -635,24 +626,25 @@ Rails.application.routes.draw do
   resources :contacts
 
 end
-{% endhighlight %}
+```
 
 Now we need a quick tweak to our HomeController inheritance so it renders HTML instead of JSON by default..
 
-{% highlight ruby %}
+``` ruby
 # ./app/controllers/home_controller.rb
 class HomeController < ActionController::Base
   def index
   end
 end
-{% endhighlight %}
+```
 
 And what about that `#index`? **The final step!** We copy _and then edit_ the `index.html`..
 
-<i class="fa fa-terminal"></i>`mkdir -p ./app/views/home`  
+<i class="fa fa-terminal"></i>`mkdir -p ./app/views/home`
+
 <i class="fa fa-terminal"></i>`cp ./index.html ./app/views/home/index.html.erb`
 
-{% highlight html %}
+``` html
 <!-- ./app/views/home/inde.html.erb -->
 <!DOCTYPE html>
 <html>
@@ -665,46 +657,47 @@ And what about that `#index`? **The final step!** We copy _and then edit_ the `i
     <%= javascript_include_tag "application", { "data-main" => "aurelia-bootstrapper" } %>
   </body>
 </html>
-{% endhighlight %}
+```
 
 We've swapped the `<script>` tag for the Rails Asset Pipeline generated `javascript_include_tag`, and now we can test it..
 
-<div class="panel panel-warning">
-  <div class="panel-body bg-warning">
-    <i class="fa fa-3x fa-meh-o fa-pull-left"></i>This is the only un-clean part of the integration as it means a manual update to this file if we've changed it during development. I suspect that we can use a gulp plugin ([gulp-html-replace](https://www.npmjs.com/package/gulp-html-replace) looks promising) to augment the build process so that we don't have to manually edit <code>./index.html</code>. We could also get our build process to copy the bundled files into our Rails folders too.. If you can me help with this, please leave a comment!
-  </div>
+<div class="notice--warning">
+  <i class="fa-regular fa-3x fa-meh fa-pull-left text--warning"></i>This is the only un-clean part of the integration as it means a manual update to this file if we've changed it during development. I suspect that we can use a gulp plugin (<a href="https://www.npmjs.com/package/gulp-html-replace">gulp-html-replace</a> looks promising) to augment the build process so that we don't have to manually edit <code>./index.html</code>. We could also get our build process to copy the bundled files into our Rails folders too.
 </div>
 
 <i class="fa fa-terminal"></i>`rails server` - hit our Rails server at [http://localhost:**3000**](http://localhost:3000) _and_..
 
 ![Screenshot of our Aurelia Contact Manager app completely hosted by Rails!]({{ site.imageurl }}/2016/aurelia-rails-done-final-screenshot.png)
-<p class="wp-caption-text">Et voila! - Our Aurelia Contact Manager application hosted by Ruby on Rails</p>
+<figcaption>Et voila! - Our Aurelia Contact Manager application hosted by Ruby on Rails</figcaption>
 
 
-<h2 id="wrap-up">Wrap up..</h2>
-<h3 id="development-workflow">Development Workflow</h3>
+## Wrap up..
+### Development Workflow
 
 For development, we just spin up the frontend and backends in separate terminal tabs like so:
 
-<i class="fa fa-terminal"></i>`au run --watch`  
+<i class="fa fa-terminal"></i>`au run --watch`
+
 <i class="fa fa-terminal"></i>`rails s`
 
 Then point our editor to `./src/*` and our browser to [http://localhost:**9000**](http://localhost:9000)
 
 
-<h3 id="release-workflow">Release / Deployment Workflow</h3>
+### Release / Deployment Workflow
 Stop the Aurelia CLI if it's running (<kbd>Ctrl</kbd>+<kbd>C</kbd> our `au run --watch` task), then
 
-<i class="fa fa-terminal"></i>`rm ./assets/*` - remove our development assets  
-<i class="fa fa-terminal"></i>`au build --env prod` - generate our production assets  
-<i class="fa fa-terminal"></i>`cp ./assets/vendor-bundle.js ./vendor/assets/javascripts/` - copy our vendor bundle  
-<i class="fa fa-terminal"></i>`cp ./assets/app-bundle.js ./app/assets/javascripts/` - copy our app bundle  
+<i class="fa fa-terminal"></i>`rm ./assets/*` - remove our development assets
 
-<div class="panel panel-info">
-	<div class="panel-body bg-info">
-		<i class="fa fa-3x fa-pull-left fa-exclamation-circle"></i> <strong>Remember!</strong> If we've changed our <code>./index.html</code> then we need to copy it and update the <code>&lt;script&gt;</code> tag as we did before:<br>
+<i class="fa fa-terminal"></i>`au build --env prod` - generate our production assets
 
-<i class="fa fa-terminal"></i><code>cp ./index.html ./app/views/home/index.html.erb</code>
+<i class="fa fa-terminal"></i>`cp ./assets/vendor-bundle.js ./vendor/assets/javascripts/` - copy our vendor bundle
+
+<i class="fa fa-terminal"></i>`cp ./assets/app-bundle.js ./app/assets/javascripts/` - copy our app bundle
+
+<div class="notice--info">
+  <i class="fa fa-3x fa-pull-left fa-exclamation-circle text--notice"></i><strong>Remember!</strong> If we've changed our <code>./index.html</code> then we need to copy it and update the <code>&lt;script&gt;</code> tag as we did before:<br>
+
+  <i class="fa fa-terminal"></i><code>cp ./index.html ./app/views/home/index.html.erb</code>
 
 {% highlight html %}
 <!-- ./app/views/home/index.html.erb -->
@@ -720,7 +713,6 @@ Stop the Aurelia CLI if it's running (<kbd>Ctrl</kbd>+<kbd>C</kbd> our `au run -
   </body>
 </html>
 {% endhighlight %}
-	</div>
 </div>
 
-.. and we're done <i class="fa fa-smile-o text-warning"></i>
+.. and we're done 🙂

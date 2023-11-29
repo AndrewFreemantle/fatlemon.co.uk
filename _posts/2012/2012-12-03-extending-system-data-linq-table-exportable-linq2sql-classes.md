@@ -1,7 +1,5 @@
 ---
 title: 'Extending System.Data.Linq.Table&lt;T&gt; &#8211; Exportable Linq2SQL Classes'
-author: Andrew Freemantle
-layout: post
 permalink: /2012/12/extending-system-data-linq-table-exportable-linq2sql-classes/
 tags:
   - 'C#'
@@ -10,30 +8,31 @@ tags:
 ---
 Wouldn't this be handy?:
 
-{% highlight csharp %}
+``` csharp
 using (var db = new DataContext()) {
     return db.StockItems.ToXElement();
 }
-{% endhighlight %}
+```
 
 I've found this approach useful when working on API's which essentially provide access to data that closely mirrors Linq2SQL generated classes. It makes it easy to control which properties are included, and how they are formatted.
 
 First, we declare an interface that we can decorate our Linq2SQL classes with. Note that I'm returning an `XElement` here, but this could be JSON or something else:
 
-`IXElementable.cs`:
-{% highlight csharp %}
+``` csharp
+// IXElementable.cs
 using System;
 using System.Xml.Linq;
 
 public interface IXElementable {
     XElement ToXElement();
 }
-{% endhighlight %}
+```
 
 Then we augment the Linq2SQL classes we wish to be exportable, using Partial Classes as we'd normally do:
 
-e.g. `StockItem.cs`:
-{% highlight csharp %}
+For example:
+``` csharp
+// StockItem.cs
 public partial class StockItem: implements IXElementable {
   // ..
   public XElement ToXElement() {
@@ -48,12 +47,12 @@ public partial class StockItem: implements IXElementable {
   }
   // ..
 }
-{% endhighlight %}
+```
 
 Finally, we extend the Linq `Table` class itself:
 
-`TableExtensions.cs`:
-{% highlight csharp %}
+``` csharp
+// TableExtensions.cs
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,7 +76,7 @@ public static class TableExtensions {
 
       } catch (Exception ex) {
         Log.Write(string.Format("Table: {0}.ToXElement", xml.Name), ex);
-        
+
         // no point continuing..
         break;
       }
@@ -101,7 +100,7 @@ public static class TableExtensions {
     return tableName;
   }
 }
-{% endhighlight %}
+```
 
 And that's it!
 
