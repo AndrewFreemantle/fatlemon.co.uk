@@ -1,7 +1,7 @@
 # Setup
 markdown:         kramdown
 highlighter:      rouge
-exclude:          ['README.md', 'Gemfile', 'Gemfile.lock']
+exclude:          ['README.md', 'Gemfile', 'Gemfile.lock', '.github', 'vendor']
 permalink:        pretty
 
 # Plugins
@@ -17,8 +17,7 @@ url:              'https://www.fatlemon.co.uk'
 paginate:         6
 baseurl:          ''
 imageurl:         '/public/images/'
-
-# n.b. FontAwesome v5 icon search: https://fontawesome.com/v5/search
+repository:       'AndrewFreemantle/fatlemon.co.uk'
 
 # Theme and theme configuration
 remote_theme:     'mmistakes/minimal-mistakes@4.24.0'

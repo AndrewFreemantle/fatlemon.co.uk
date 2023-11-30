@@ -3,7 +3,7 @@
 {
 	"name": "GitHub Pages (Jekyll)",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "ruby:2.7.4",
+	"image": "ruby:2.7.8",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
