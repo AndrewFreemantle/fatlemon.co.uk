@@ -32,7 +32,7 @@ search:           true
 author:
   name:           'Andrew Freemantle'
   avatar:         'https://www.gravatar.com/avatar/b873b1a5199eeefff7a7c1531f02324a?s=128&r=PG'
-  bio:            'Hi, welcome to my blog about software development and human factors'
+  bio:            "I'm an enabler and encourager of software engineering teams, solving difficult problems one pull-request at a time"
   location:       'Newcastle upon Tyne, U.K.'
   url:            'https://www.fatlemon.co.uk'
   links:
