@@ -12,9 +12,9 @@
       {% endfor %}
     {% endif %}
 
-    {% unless site.atom_feed.hide %}
+    {% unless site.feed.hide %}
       <li>
-        <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fa-solid fa-fw fa-rss-square" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a>
+        <a href="{% if site.feed.path %}{{ site.feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fa-solid fa-fw fa-rss-square" aria-hidden="true"></i>{{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a>
         <a href="{% if site.json_feed.path %}{{ site.json_feed.path }}{% else %}{{ '/feed.json' | relative_url }}{% endif %}">{{ site.data.ui-text[site.locale].feed_json_label | default: "(json)" }}</a>
       </li>
     {% endunless %}

@@ -18,6 +18,8 @@ paginate:         6
 baseurl:          ''
 imageurl:         '/public/images/'
 repository:       'AndrewFreemantle/fatlemon.co.uk'
+feed:
+  path:           '/atom.xml'
 
 # Theme and theme configuration
 remote_theme:     'mmistakes/minimal-mistakes@4.24.0'
