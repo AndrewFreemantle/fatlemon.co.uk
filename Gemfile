@@ -11,7 +11,7 @@ ruby '2.7.8'
 
 # If you have any plugins, put them here!
 # Refer GitHub Pages version dependencies from https://pages.github.com/versions/
-gem "github-pages", "228", group: :jekyll_plugins
+gem "github-pages", "231", group: :jekyll_plugins
 
 group :jekyll_plugins do
   gem 'json'
