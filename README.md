@@ -6,4 +6,4 @@ This is the source code, configuration and writing for [Andrew Freemantle's pers
 	<img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" alt="Creative Commons - Attribution License 4.0" style="width:100px">
 </a>
 
-All of my writing is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, please respect my work acknowledging by the source.
+All of my writing is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, please respect my work by acknowledging the source.
