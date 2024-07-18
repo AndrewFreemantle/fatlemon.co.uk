@@ -1,7 +1,7 @@
 # Setup
 markdown:         kramdown
 highlighter:      rouge
-exclude:          ['README.md', 'Gemfile', 'Gemfile.lock', '.github', 'vendor']
+exclude:          ['README.md', 'Gemfile', 'Gemfile.lock', '.github', 'vendor', '.devcontainer']
 permalink:        pretty
 
 # Plugins
@@ -14,7 +14,7 @@ plugins:
 # Site
 title:            'Fat Lemon'
 url:              'https://www.fatlemon.co.uk'
-paginate:         6
+paginate:         8
 baseurl:          ''
 imageurl:         '/public/images/'
 repository:       'AndrewFreemantle/fatlemon.co.uk'

@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '2.7.8'
+ruby '3.2.4'
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
@@ -11,7 +11,8 @@ ruby '2.7.8'
 
 # If you have any plugins, put them here!
 # Refer GitHub Pages version dependencies from https://pages.github.com/versions/
-gem "github-pages", "231", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins
+gem "webrick"
 
 group :jekyll_plugins do
   gem 'json'
