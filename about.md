@@ -19,4 +19,4 @@ Primarily to improve my writing, programming and software engineering skills; to
 The name came to me while I was at University - we were throwing ideas around for a group project company name, and all of the suggestions were quite serious, so I started thinking of sillier names and for some reason started thinking of fruit.. the name stuck in my head, but the group decided on a more conservative name in the end!
 
 ### How can I contact you?
-I [tweet a little more](https://twitter.com/fatlemon) often than I post, or you can send me an email [andrew --at-- fatlemon.co.uk](mailto:andrew--AT--fatlemon.co.uk)  :o)
+I don't really [tweet on Mastodon](https://mastodon.social/@fatlemon), so it's probably better to send me an email [andrew --at-- fatlemon.co.uk](mailto:andrew--AT--fatlemon.co.uk)  :o)
