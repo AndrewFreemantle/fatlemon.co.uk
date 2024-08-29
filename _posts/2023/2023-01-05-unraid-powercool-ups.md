@@ -34,7 +34,7 @@ In `Settings` <i class="fa fa-arrow-right"></i> `UPS Settings` ensure we have th
 In `Plugins` <i class="fa fa-arrow-right"></i> `Install Plugin` paste the following URL and click `Install`
 
 ```
-https://raw.githubusercontent.com/dmacias72/NUT-unRAID/master/plugin/nut.plg
+https://raw.githubusercontent.com/desertwitch/NUT-unRAID/master/plugin/nut-dw.plg
 ```
 
 ![Install the Network UPS Tools (NUT) plugin]({{ site.imageurl }}2023/powercool-ups/unraid-install-nut-plugin.png)
