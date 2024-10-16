@@ -10,3 +10,6 @@ fi
 if [ -f Gemfile ]; then
     bundle install
 fi
+
+## Add a few helpful aliases
+cat .devcontainer/.bash_aliases >> ~/.bashrc
