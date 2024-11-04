@@ -63,7 +63,7 @@ defaults:
                         <img class="rentbook-logo" src="/public/images/rentbook-logo-18px.png" alt="rentbook logo" style="width:18px" width="18px" height="16px"> <span style="color:#5755d9"><strong>rent</strong>book</span> - <span class="text--muted">Property Management for busy Landlords</span>
                       </a>'
         - text:       '<p style="font-size: 0.6em; margin-top: 3em;">
-                        <img src="https://i.creativecommons.org/l/by/4.0/80x15.png" style="display:block;margin-bottom:0.5em;width:80px" width="80px" height="15px">
+                        <img src="https://licensebuttons.net/l/by/4.0/80x15.png" style="display:block;margin-bottom:0.5em;width:80px" width="80px" height="15px">
                         All of my writing is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, please respect my work by acknowledging the source.
                       </p>'
   # _posts
