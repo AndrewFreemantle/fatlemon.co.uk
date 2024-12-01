@@ -140,3 +140,7 @@ span.table-subheading {
 	display: block;
 	margin-bottom: 1em;
 }
+
+.fluid-width-video-wrapper {
+	margin-bottom: 2rem;
+}
