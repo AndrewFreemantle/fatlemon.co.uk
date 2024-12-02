@@ -20,7 +20,7 @@ Given I found [watching other developer's attempts](https://www.youtube.com/@jon
 
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/bSgjxKdqmv8" title="Advent of Code 2024 - Day 01 - C#" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-The 1st day is usually straightforward, and gave me a chance to shakedown my recording, exporting and uploading process.
+[The 1st day](https://adventofcode.com/2024/day/1) is usually straightforward, and gave me a chance to shakedown my recording, exporting and uploading process.
 
 ### Part 1 ⭐️
 The only gotcha I could think of here was the subtraction of a larger number might give a negative value. I didn't check the input for this situation as taking the absolute of the result would mitigate it: `Math.Abs(smaller - larger)`
