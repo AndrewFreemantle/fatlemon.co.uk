@@ -1,7 +1,7 @@
 ---
 title: 'Advent of Code 2024 - Day 03'
 permalink: /2024/01/advent-of-code-2024-day03/
-excerpt: '▶️ Advent of Code 2024 - Day 03 ⭐️⭐️'
+excerpt: 'Advent of Code 2024 - Day 03 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day03/
 tags:
