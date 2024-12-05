@@ -42,4 +42,4 @@ private bool WordIsUpForward(string word, int x, int y)
 ```
 
 ### Part 2 ⭐️
-After a little thought, I figured that finding the middle character of the word as my starting point, then re-using 2 of the ordinal direction methods in combination with reversing the word ought to work. Pleasingly, it did.
+After a little thought, I figured that finding the middle character of the word as my starting point then re-using 2 of the ordinal direction methods in combination with reversing the word ought to work. Pleasingly, it did.
