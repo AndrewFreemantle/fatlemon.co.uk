@@ -31,7 +31,7 @@ public string Part1()
 ```
 
 ### Part 2 ⭐️
-Inittially this seemed daunting, then I realised this looked like a [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) problem. The separate functions from Part 1 were resuable and I ended up with a correct answer pretty swiftly.
+Initially this seemed daunting, then I realised this looked like a [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) problem. The separate functions from Part 1 were resuable and I ended up with a correct answer pretty swiftly.
 
 ``` c#
 public string Part2()
