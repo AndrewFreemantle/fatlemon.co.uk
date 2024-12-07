@@ -23,6 +23,8 @@ Pretty straightforward 🙂
 ### Part 2 ⭐️
 Seemed straightforward, but after a wrong answer and much code review I was struggling to understand why my approach to adding obstacles wasn't working. I'd thought I could place an ostacle in the path then run from there, but my answer was too high.
 
-I ruminated on it during the day and after discussing the problem with Julie, she suggested building a new map with each of the visited spaces and running each to completion. A quick rewrite after completing [day 7](https://adventofcode.com/2024/day/6) and we're back up to full marks.
+I'm not loving mazes anymore.
+
+I ruminated on it during the day and after discussing the problem with Julie, she suggested building a new map with each of the visited points as an obstacle and running each to completion. A quick rewrite after [completing day 7]({{ site.url }}/aoc-2024-day07) and we're back up to full marks 🙌
 
 Out of curiosity, I used the `Parallel.ForEach(visited, visitedPoint => {})` function, and it took 37.7652257 seconds to complete.
