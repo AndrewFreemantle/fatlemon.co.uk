@@ -1,13 +1,13 @@
 ---
-title: 'Advent of Code 2024 - Day 08'
-permalink: /2024/01/advent-of-code-2024-day08/
-excerpt: 'Advent of Code 2024 - Day 08 ⭐️⭐️'
+title: 'Advent of Code 2024 - Day 8'
+permalink: /2024/12/advent-of-code-2024-day08/
+excerpt: 'Advent of Code 2024 - Day 8 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day08/
 tags:
   - Advent of Code
   - 2024
-  - Day 08
+  - Day 8
   - dotnet
 ---
 

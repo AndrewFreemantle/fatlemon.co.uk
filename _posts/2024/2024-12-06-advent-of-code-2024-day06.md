@@ -1,13 +1,13 @@
 ---
-title: 'Advent of Code 2024 - Day 06'
-permalink: /2024/01/advent-of-code-2024-day06/
-excerpt: 'Advent of Code 2024 - Day 06 ⭐️⭐️'
+title: 'Advent of Code 2024 - Day 6'
+permalink: /2024/12/advent-of-code-2024-day06/
+excerpt: 'Advent of Code 2024 - Day 6 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day06/
 tags:
   - Advent of Code
   - 2024
-  - Day 06
+  - Day 6
   - dotnet
 ---
 

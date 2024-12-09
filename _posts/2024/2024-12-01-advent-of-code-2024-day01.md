@@ -1,13 +1,13 @@
 ---
-title: 'Advent of Code 2024 - Day 01'
-permalink: /2024/01/advent-of-code-2024-day01/
-excerpt: '▶️ Advent of Code 2024 - Day 01 ⭐️⭐️'
+title: 'Advent of Code 2024 - Day 1'
+permalink: /2024/12/advent-of-code-2024-day01/
+excerpt: '▶️ Advent of Code 2024 - Day 1 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day01/
 tags:
   - Advent of Code
   - 2024
-  - Day 01
+  - Day 1
   - dotnet
   - YouTube
 ---
