@@ -15,7 +15,7 @@ It's Advent of Code time 🎄
 
 > [Advent of Code](https://adventofcode.com/2024/about) is an [Advent calendar](https://en.wikipedia.org/wiki/Advent_calendar) of small programming puzzles for a variety of skill levels that can be solved in any programming language you like.
 
-It took a change of approach to solve [Day 9](https://adventofcode.com/2024/day/8)'s part 2, but I got there 🙂
+It took a change of approach to solve [Day 9](https://adventofcode.com/2024/day/9)'s part 2, but I got there 🙂
 
 ### Part 1 ⭐️
 Time travelling with the engineers and reading the problem statement made me think of [Quantum Leap](https://en.wikipedia.org/wiki/Quantum_Leap_(1989_TV_series)) this morning...
