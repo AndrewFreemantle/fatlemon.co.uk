@@ -1,7 +1,7 @@
 ---
-title: 'Advent of Code 2024 - Day 11'
+title: 'AoC# 2024 - Day 11: Plutonian Pebbles'
 permalink: /2024/12/advent-of-code-2024-day11/
-excerpt: 'Advent of Code 2024 - Day 11 ⭐️⭐️'
+excerpt: 'Advent of Code 2024 in C# - Day 11 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day11/
 tags:

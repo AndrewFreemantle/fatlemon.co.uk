@@ -1,7 +1,7 @@
 ---
-title: 'Advent of Code 2024 - Day 1'
+title: 'AoC# 2024 - Day 1: Historian Hysteria'
 permalink: /2024/12/advent-of-code-2024-day01/
-excerpt: '▶️ Advent of Code 2024 - Day 1 ⭐️⭐️'
+excerpt: '▶️ Advent of Code 2024 in C#- Day 1 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day01/
 tags:

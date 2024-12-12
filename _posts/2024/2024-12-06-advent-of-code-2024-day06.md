@@ -1,7 +1,7 @@
 ---
-title: 'Advent of Code 2024 - Day 6'
+title: 'AoC# 2024 - Day 6: Guard Gallivant'
 permalink: /2024/12/advent-of-code-2024-day06/
-excerpt: 'Advent of Code 2024 - Day 6 ⭐️⭐️'
+excerpt: 'Advent of Code 2024 in C# - Day 6 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day06/
 tags:

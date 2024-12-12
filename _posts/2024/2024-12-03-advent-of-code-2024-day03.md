@@ -1,7 +1,7 @@
 ---
-title: 'Advent of Code 2024 - Day 3'
+title: 'AoC# 2024 - Day 3: Mull It Over'
 permalink: /2024/12/advent-of-code-2024-day03/
-excerpt: 'Advent of Code 2024 - Day 3 ⭐️⭐️'
+excerpt: 'Advent of Code 2024 in C# - Day 3 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day03/
 tags:

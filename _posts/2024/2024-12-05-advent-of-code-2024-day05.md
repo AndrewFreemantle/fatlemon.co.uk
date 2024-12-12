@@ -1,7 +1,7 @@
 ---
-title: 'Advent of Code 2024 - Day 5'
+title: 'AoC# 2024 - Day 5: Print Queue'
 permalink: /2024/12/advent-of-code-2024-day05/
-excerpt: 'Advent of Code 2024 - Day 5 ⭐️⭐️'
+excerpt: 'Advent of Code 2024 in C# - Day 5 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day05/
 tags:

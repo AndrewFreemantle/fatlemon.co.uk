@@ -1,7 +1,7 @@
 ---
-title: 'Advent of Code 2024 - Day 7'
+title: 'AoC# 2024 - Day 7: Bridge Repair'
 permalink: /2024/12/advent-of-code-2024-day07/
-excerpt: 'Advent of Code 2024 - Day 7 ⭐️⭐️'
+excerpt: 'Advent of Code 2024 in C# - Day 7 ⭐️⭐️'
 redirect_from:
   - /aoc-2024-day07/
 tags:
