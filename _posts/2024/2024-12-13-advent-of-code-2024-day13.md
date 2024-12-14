@@ -15,7 +15,7 @@ It's Advent of Code time 🎄
 
 > [Advent of Code](https://adventofcode.com/2024/about) is an [Advent calendar](https://en.wikipedia.org/wiki/Advent_calendar) of small programming puzzles for a variety of skill levels that can be solved in any programming language you like.
 
-[Day 13](https://adventofcode.com/2024/day/12) finds us in worship of the claw!
+[Day 13](https://adventofcode.com/2024/day/13) finds us in worship of the claw!
 
 <img width="50%" src="https://wallpapers.com/images/hd/toy-story-alien-with-the-claw-wbctqt7tw6xrggaf.jpg"/>
 
