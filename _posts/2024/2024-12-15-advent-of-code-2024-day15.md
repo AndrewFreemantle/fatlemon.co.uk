@@ -15,7 +15,7 @@ It's Advent of Code time 🎄
 
 > [Advent of Code](https://adventofcode.com/2024/about) is an [Advent calendar](https://en.wikipedia.org/wiki/Advent_calendar) of small programming puzzles for a variety of skill levels that can be solved in any programming language you like.
 
-[Day 15](https://adventofcode.com/2024/day/14): Warehouse Woes indeed...
+[Day 15](https://adventofcode.com/2024/day/15): Warehouse Woes indeed...
 
 ### Part 1 ⭐️
 My box-moving robot implementation didn't really push the boxes around so much as throw the closest box into the first available free space. It worked, though I won't guarantee their contents 📦
