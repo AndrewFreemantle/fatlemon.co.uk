@@ -15,7 +15,7 @@ It's Advent of Code time 🎄
 
 > [Advent of Code](https://adventofcode.com/2024/about) is an [Advent calendar](https://en.wikipedia.org/wiki/Advent_calendar) of small programming puzzles for a variety of skill levels that can be solved in any programming language you like.
 
- [Day 18](https://adventofcode.com/2024/day/18) is a return to previous form - two stars again!
+[Day 18](https://adventofcode.com/2024/day/18) is a return to previous form - two stars again!
 
 ### Part 1 ⭐️
 For solving the shortest path I chose the [A* algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm) and implemented it from the psuedocode, which worked first time 🙂
