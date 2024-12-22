@@ -1,6 +1,6 @@
 ---
 title: 'AoC# 2024 - Day 21: Keypad Conundrum'
-permalink: /2024/12/advent-of-code-2024-day20/
+permalink: /2024/12/advent-of-code-2024-day21/
 excerpt: 'Advent of Code 2024 in C# - Day 21'
 redirect_from:
   - /aoc-2024-day21/
@@ -66,7 +66,7 @@ Which works for the example input but gives the wrong answer for the actual puzz
 
 I'm sure the issue is with how `GetKeyPadSequence()` is generating the sequences and I have checks to ensure the gaps are avoided, but after tinkering on and off I've run out of day 🙁
 
-There's still time pick up at least one of the remaining 8 stars to get a new Personal Best this year... 🤞
+There's still time to pick up at least one of the remaining 8 stars to get a new Personal Best this year... 🤞
 
 ### Part 2 ❌
 
