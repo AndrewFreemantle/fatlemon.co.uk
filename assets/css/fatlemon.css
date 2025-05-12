@@ -10,6 +10,13 @@
 	}
 }
 
+.page img {
+	border-radius: 5px;
+	box-shadow: 6px 6px 15px -4px rgba(90,90,90,0.75);
+	-webkit-box-shadow: 6px 6px 15px -4px rgba(90,90,90,0.75);
+	-moz-box-shadow: 6px 6px 15px -4px rgba(90,90,90,0.75);
+}
+
 .text--success {
 	color: #328532;
 }
@@ -31,6 +38,9 @@
 
 .text--center {
 	text-align: center;
+}
+.text--mono {
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
 }
 
 .fa.fa-terminal {
