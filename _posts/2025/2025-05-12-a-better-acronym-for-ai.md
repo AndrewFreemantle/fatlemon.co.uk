@@ -23,7 +23,7 @@ LLMs aren't based on reason, they produce responses based on probabilities disti
 
 **LLMs aren't intelligent.**
 
-I think a better acronym for <span class="text--mono">A.I.</span> is <span class="text--mono">Automated Inference</span>.
+I think a better acronym for <span class="text--mono">A.I.</span> is **<span class="text--mono">Automated Inference</span>**.
 
 > [**Automated**](https://dictionary.cambridge.org/dictionary/english/automated) : "carried out by machines or computers without needing human control"
 >
